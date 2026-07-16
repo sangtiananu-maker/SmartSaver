@@ -27,25 +27,33 @@
     <!-- Top Header -->
     <header class="app-header">
       <div class="header-content">
-        <h1 class="app-title">Smart<span class="accent-text">Saver</span></h1>
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
-          <!-- Light Mode Icon (Sun) -->
-          <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24">
-            <circle cx="12" cy="12" r="5" fill="currentColor"/>
-            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-          <!-- Dark Mode Icon (Moon) -->
-          <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24">
-            <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
-        </button>
+        <div class="title-block">
+          <h1 class="app-title">Smart<span class="accent-text">Saver</span></h1>
+          <span class="app-subtitle">by Tian</span>
+        </div>
+        <div class="header-controls">
+          <!-- Language Toggle -->
+          <button id="lang-toggle" class="lang-toggle-btn" aria-label="Toggle Language">EN</button>
+          <!-- Theme Toggle -->
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+            <!-- Light Mode Icon (Sun) -->
+            <svg class="sun-icon" viewBox="0 0 24 24" width="24" height="24">
+              <circle cx="12" cy="12" r="5" fill="currentColor"/>
+              <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <!-- Dark Mode Icon (Moon) -->
+            <svg class="moon-icon" viewBox="0 0 24 24" width="24" height="24">
+              <path fill="currentColor" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -58,15 +66,15 @@
         <div id="compare-summary-card" class="summary-card result-success hidden">
           <div class="summary-icon">🏆</div>
           <div class="summary-text-container">
-            <div class="summary-subtitle">Best Choice Found</div>
+          <div id="compare-summary-subtitle" class="summary-subtitle">Best Choice Found</div>
             <div id="compare-best-result" class="summary-title">Product A is cheapest!</div>
             <div id="compare-savings-details" class="summary-details">Saves 25% compared to others.</div>
           </div>
         </div>
 
         <div class="section-header">
-          <h2>Compare Product Prices</h2>
-          <p class="section-description">Fill in the price and quantity for each item. The cheapest product will highlight automatically.</p>
+          <h2 id="compare-h2">Compare Product Prices</h2>
+          <p id="compare-desc" class="section-description">Fill in the price and quantity for each item. The cheapest product will highlight automatically.</p>
         </div>
 
         <!-- Dynamic Product Cards List -->
@@ -78,11 +86,9 @@
         <div class="action-bar">
           <button id="add-compare-item-btn" class="btn btn-secondary btn-large">
             <svg viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
-            Add Another Product
+            <span>Add Another Product</span>
           </button>
-          <button id="clear-compare-btn" class="btn btn-danger-outline">
-            Clear All
-          </button>
+          <button id="clear-compare-btn" class="btn btn-danger-outline">Clear All</button>
         </div>
       </section>
 
@@ -91,11 +97,11 @@
         <!-- Summary Dashboard -->
         <div class="discount-summary-grid">
           <div class="summary-box">
-            <div class="box-label">Original Total</div>
+            <div id="label-original-total" class="box-label">Original Total</div>
             <div id="discount-total-original" class="box-value">0.00</div>
           </div>
           <div class="summary-box highlight-savings">
-            <div class="box-label">Total Saved</div>
+            <div id="label-total-saved" class="box-label">Total Saved</div>
             <div id="discount-total-saved" class="box-value">0.00</div>
             <div id="discount-percent-badge" class="percent-badge hidden">0% OFF</div>
           </div>
@@ -103,15 +109,15 @@
 
         <!-- Paid Amount Input Box -->
         <div class="input-card paid-amount-card">
-          <label for="discount-total-paid" class="field-label bold-label">How much did you actually pay?</label>
+          <label id="label-how-much" for="discount-total-paid" class="field-label bold-label">How much did you actually pay?</label>
           <div class="paid-input-wrapper">
             <input type="number" id="discount-total-paid" class="input-field input-xl" placeholder="Paid price" min="0" step="any" inputmode="decimal">
           </div>
         </div>
 
         <div class="section-header">
-          <h2>Allocate Discount Pro-Rata</h2>
-          <p class="section-description">Enter the full price of each item. The app will calculate the exact price you paid for each item based on your discount.</p>
+          <h2 id="discount-h2">Allocate Discount Pro-Rata</h2>
+          <p id="discount-desc" class="section-description">Enter the full price of each item. The app will calculate the exact price you paid for each item based on your discount.</p>
         </div>
 
         <!-- Dynamic Discount Rows List -->
@@ -123,11 +129,9 @@
         <div class="action-bar">
           <button id="add-discount-item-btn" class="btn btn-secondary btn-large">
             <svg viewBox="0 0 24 24" width="24" height="24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
-            Add Another Item
+            <span>Add Another Item</span>
           </button>
-          <button id="clear-discount-btn" class="btn btn-danger-outline">
-            Clear All
-          </button>
+          <button id="clear-discount-btn" class="btn btn-danger-outline">Clear All</button>
         </div>
       </section>
 
@@ -140,14 +144,14 @@
           <!-- Balance/Scale Icon -->
           <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M12 7l8 4M12 7L4 11M4 11c0 3 3.5 5 8 5s8-2 8-5M20 21H4"/>
         </svg>
-        <span class="tab-label">Compare Prices</span>
+        <span class="tab-label" data-tab="compare">Compare Prices</span>
       </button>
       <button id="tab-discount" class="nav-tab" aria-controls="discount-page">
         <svg class="tab-icon" viewBox="0 0 24 24" width="24" height="24">
           <!-- Tag Icon -->
           <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01"/>
         </svg>
-        <span class="tab-label">Discount Calc</span>
+        <span class="tab-label" data-tab="discount">Discount Calc</span>
       </button>
     </nav>
 
