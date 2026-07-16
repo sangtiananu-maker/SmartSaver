@@ -448,12 +448,10 @@ addCompareItemBtn.addEventListener('click', () => {
 });
 
 clearCompareBtn.addEventListener('click', () => {
-  if (confirm(t('clearCompareConfirm'))) {
-    state.compareItems = [createNewCompareItem(1), createNewCompareItem(2)];
-    saveState();
-    renderCompareList();
-    calculateCompare();
-  }
+  state.compareItems = [createNewCompareItem(1), createNewCompareItem(2)];
+  saveState();
+  renderCompareList();
+  calculateCompare();
 });
 
 // ===== DISCOUNT PAGE =====
@@ -579,12 +577,10 @@ addDiscountItemBtn.addEventListener('click', () => {
 });
 
 clearDiscountBtn.addEventListener('click', () => {
-  if (confirm(t('clearDiscountConfirm'))) {
-    state.discountItems = [createNewDiscountItem(1), createNewDiscountItem(2)];
-    state.discountPaid = '';
-    discountPaidInput.value = '';
-    saveState();
-    renderDiscountList();
-    calculateDiscount();
-  }
+  state.discountItems = [createNewDiscountItem(1), createNewDiscountItem(2)];
+  state.discountPaid = '';
+  discountPaidInput.value = '';
+  saveState();
+  renderDiscountList();
+  calculateDiscount();
 });
