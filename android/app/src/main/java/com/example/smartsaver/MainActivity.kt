@@ -1,5 +1,6 @@
 ﻿package com.example.smartsaver
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.ViewGroup
@@ -23,7 +24,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowInsetsControllerCompat
-import com.example.smartsaver.ui.theme.SmartSaverTheme
+import com.example.smartsaver.theme.SmartSaverTheme
 
 class MainActivity : ComponentActivity() {
 
@@ -40,14 +41,13 @@ class MainActivity : ComponentActivity() {
 
     setContent {
       SmartSaverTheme {
-        // Reactive surface color behind status bar for Android 15 (Samsung S25, etc.)
         val surfaceColor = if (isDark) Color(0xFF070B14) else Color(0xFFF8FAFC)
 
         Surface(
           modifier = Modifier.fillMaxSize(),
           color = surfaceColor
         ) {
-          Box(modifier = Modifier.safeDrawingPadding()) {
+          Box(modifier = Modifier.fillMaxSize().safeDrawingPadding()) {
             WebViewScreen(
               url = "file:///android_asset/index.html",
               onThemeChanged = { dark ->
@@ -81,6 +81,7 @@ class ThemeBridge(private val onThemeChanged: (Boolean) -> Unit) {
   }
 }
 
+@SuppressLint("SetJavaScriptEnabled")
 @Composable
 fun WebViewScreen(url: String, onThemeChanged: (Boolean) -> Unit) {
   AndroidView(
@@ -99,7 +100,9 @@ fun WebViewScreen(url: String, onThemeChanged: (Boolean) -> Unit) {
           domStorageEnabled = true
           allowFileAccess = true
           allowContentAccess = true
-          databaseEnabled = true
+          useWideViewPort = true
+          loadWithOverviewMode = true
+          textZoom = 100 // Locks font/display zoom to standard 100% so CSS responsive clamp() handles scaling perfectly
           mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
         }
         loadUrl(url)
