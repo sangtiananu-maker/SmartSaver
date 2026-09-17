@@ -14,7 +14,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -47,7 +47,10 @@ class MainActivity : ComponentActivity() {
           modifier = Modifier.fillMaxSize(),
           color = surfaceColor
         ) {
-          Box(modifier = Modifier.fillMaxSize().safeDrawingPadding()) {
+          // Use systemBarsPadding() instead of safeDrawingPadding().
+          // systemBarsPadding() only accounts for status and navigation bars,
+          // completely avoiding resizing the WebView frame during keyboard animation.
+          Box(modifier = Modifier.fillMaxSize().systemBarsPadding()) {
             WebViewScreen(
               url = "file:///android_asset/index.html",
               onThemeChanged = { dark ->
@@ -102,7 +105,7 @@ fun WebViewScreen(url: String, onThemeChanged: (Boolean) -> Unit) {
           allowContentAccess = true
           useWideViewPort = true
           loadWithOverviewMode = true
-          textZoom = 100 // Locks font/display zoom to standard 100% so CSS responsive clamp() handles scaling perfectly
+          textZoom = 100 // Prevent Android system accessibility zoom from breaking responsiveness
           mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
         }
         loadUrl(url)

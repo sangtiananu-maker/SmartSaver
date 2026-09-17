@@ -14,14 +14,14 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#4F46E5">
   
-  <!-- Modern iOS-feel Typography: Plus Jakarta Sans & Outfit -->
+  <!-- Modern iOS & One UI Feel Typography: Plus Jakarta Sans & Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="light-theme">
-  <!-- Ambient Liquid Mesh Gradient Background Orbs -->
+  <!-- Ambient Liquid Mesh Gradient Background Orbs (GPU Isolated) -->
   <div class="ambient-mesh-container" aria-hidden="true">
     <div class="ambient-orb orb-1"></div>
     <div class="ambient-orb orb-2"></div>
@@ -55,12 +55,12 @@
             <!-- Theme Toggle Pill Button -->
             <button id="theme-toggle" class="glass-pill-btn icon-btn" aria-label="Toggle Theme">
               <!-- Sun Icon for Light Mode -->
-              <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="4.5"/>
                 <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
               </svg>
               <!-- Moon Icon for Dark Mode -->
-              <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
               </svg>
             </button>
@@ -74,86 +74,100 @@
 
       <!-- ================= PAGE 1: PRICE COMPARE ================= -->
       <section id="compare-page" class="page-content active">
-        <!-- Floating Result Liquid Glass Banner -->
-        <div id="compare-summary-card" class="summary-card result-liquid-card hidden">
-          <div class="summary-icon-wrapper">
-            <span class="summary-icon">🏆</span>
+        
+        <!-- ONE UI VIEWING AREA: Top portion with results and descriptions -->
+        <div class="oneui-viewing-area">
+          <!-- Floating Result Liquid Glass Banner -->
+          <div id="compare-summary-card" class="summary-card result-liquid-card hidden">
+            <div class="summary-icon-wrapper">
+              <span class="summary-icon">🏆</span>
+            </div>
+            <div class="summary-text-container">
+              <div id="compare-summary-subtitle" class="summary-subtitle">Best Choice Found</div>
+              <div id="compare-best-result" class="summary-title">Product A is cheapest!</div>
+              <div id="compare-savings-details" class="summary-details">Saves 25% compared to others.</div>
+            </div>
           </div>
-          <div class="summary-text-container">
-            <div id="compare-summary-subtitle" class="summary-subtitle">Best Choice Found</div>
-            <div id="compare-best-result" class="summary-title">Product A is cheapest!</div>
-            <div id="compare-savings-details" class="summary-details">Saves 25% compared to others.</div>
+
+          <div class="section-header">
+            <h2 id="compare-h2">Compare Product Prices</h2>
+            <p id="compare-desc" class="section-description">Fill in the price and quantity for each item. The cheapest product will highlight automatically.</p>
           </div>
         </div>
 
-        <div class="section-header">
-          <h2 id="compare-h2">Compare Product Prices</h2>
-          <p id="compare-desc" class="section-description">Fill in the price and quantity for each item. The cheapest product will highlight automatically.</p>
-        </div>
+        <!-- ONE UI INTERACTION AREA: Lower 2/3 thumb-friendly reach zone -->
+        <div class="oneui-interaction-area">
+          <!-- 2-Column Responsive Product Cards Grid -->
+          <div id="compare-list" class="items-grid">
+            <!-- Cards dynamically injected via JavaScript -->
+          </div>
 
-        <!-- 2-Column Responsive Product Cards Grid -->
-        <div id="compare-list" class="items-grid">
-          <!-- Cards dynamically injected via JavaScript -->
-        </div>
-
-        <!-- Action Bar: Add Product & Clear All -->
-        <div class="action-bar">
-          <button id="add-compare-item-btn" class="glass-action-btn primary-action">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-              <path d="M12 5v14M5 12h14"/>
-            </svg>
-            <span>Add Another Product</span>
-          </button>
-          <button id="clear-compare-btn" class="glass-action-btn danger-action">
-            Clear All
-          </button>
+          <!-- Action Bar: Add Product & Clear All -->
+          <div class="action-bar">
+            <button id="add-compare-item-btn" class="glass-action-btn primary-action">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+              <span>Add Another Product</span>
+            </button>
+            <button id="clear-compare-btn" class="glass-action-btn danger-action">
+              Clear All
+            </button>
+          </div>
         </div>
       </section>
 
       <!-- ================= PAGE 2: DISCOUNT CALC ================= -->
       <section id="discount-page" class="page-content">
-        <!-- Summary Dashboard in Liquid Glass -->
-        <div class="discount-summary-grid">
-          <div class="summary-box glass-card">
-            <div id="label-original-total" class="box-label">Original Total</div>
-            <div id="discount-total-original" class="box-value">0.00</div>
+        
+        <!-- ONE UI VIEWING AREA: Top portion with summary dashboard numbers -->
+        <div class="oneui-viewing-area">
+          <!-- Summary Dashboard in Liquid Glass -->
+          <div class="discount-summary-grid">
+            <div class="summary-box glass-card">
+              <div id="label-original-total" class="box-label">Original Total</div>
+              <div id="discount-total-original" class="box-value">0.00</div>
+            </div>
+            <div class="summary-box glass-card highlight-savings">
+              <div id="label-total-saved" class="box-label">Total Saved</div>
+              <div id="discount-total-saved" class="box-value">0.00</div>
+              <div id="discount-percent-badge" class="percent-badge hidden">0% OFF</div>
+            </div>
           </div>
-          <div class="summary-box glass-card highlight-savings">
-            <div id="label-total-saved" class="box-label">Total Saved</div>
-            <div id="discount-total-saved" class="box-value">0.00</div>
-            <div id="discount-percent-badge" class="percent-badge hidden">0% OFF</div>
+
+          <div class="section-header">
+            <h2 id="discount-h2">Allocate Discount Pro-Rata</h2>
+            <p id="discount-desc" class="section-description">Enter the full price of each item. The app will calculate the exact price you paid for each item based on your discount.</p>
           </div>
         </div>
 
-        <!-- Actual Paid Amount Card -->
-        <div class="input-card glass-card paid-amount-card">
-          <label id="label-how-much" for="discount-total-paid" class="field-label bold-label">How much did you actually pay?</label>
-          <div class="paid-input-wrapper">
-            <input type="number" id="discount-total-paid" class="input-field input-xl glass-input" placeholder="Paid price" min="0" step="any" inputmode="decimal">
+        <!-- ONE UI INTERACTION AREA: Lower 2/3 thumb-friendly reach zone -->
+        <div class="oneui-interaction-area">
+          <!-- Actual Paid Amount Card -->
+          <div class="input-card glass-card paid-amount-card">
+            <label id="label-how-much" for="discount-total-paid" class="field-label bold-label">How much did you actually pay?</label>
+            <div class="paid-input-wrapper">
+              <input type="number" id="discount-total-paid" class="input-field input-xl glass-input" placeholder="Paid price" min="0" step="any" inputmode="decimal">
+            </div>
           </div>
-        </div>
 
-        <div class="section-header">
-          <h2 id="discount-h2">Allocate Discount Pro-Rata</h2>
-          <p id="discount-desc" class="section-description">Enter the full price of each item. The app will calculate the exact price you paid for each item based on your discount.</p>
-        </div>
+          <!-- Dynamic Discount Rows List -->
+          <div id="discount-list" class="items-list">
+            <!-- Rows injected via JavaScript -->
+          </div>
 
-        <!-- Dynamic Discount Rows List -->
-        <div id="discount-list" class="items-list">
-          <!-- Rows injected via JavaScript -->
-        </div>
-
-        <!-- Action Bar: Add Item & Clear All -->
-        <div class="action-bar">
-          <button id="add-discount-item-btn" class="glass-action-btn primary-action">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-              <path d="M12 5v14M5 12h14"/>
-            </svg>
-            <span>Add Another Item</span>
-          </button>
-          <button id="clear-discount-btn" class="glass-action-btn danger-action">
-            Clear All
-          </button>
+          <!-- Action Bar: Add Item & Clear All -->
+          <div class="action-bar">
+            <button id="add-discount-item-btn" class="glass-action-btn primary-action">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                <path d="M12 5v14M5 12h14"/>
+              </svg>
+              <span>Add Another Item</span>
+            </button>
+            <button id="clear-discount-btn" class="glass-action-btn danger-action">
+              Clear All
+            </button>
+          </div>
         </div>
       </section>
 
@@ -163,13 +177,13 @@
     <div class="nav-island-wrapper">
       <nav class="floating-glass-nav glass-surface">
         <button id="tab-compare" class="nav-tab active" aria-controls="compare-page">
-          <svg class="tab-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="tab-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3v18M12 7l8 4M12 7L4 11M4 11c0 3 3.5 5 8 5s8-2 8-5M20 21H4"/>
           </svg>
           <span class="tab-label" data-tab="compare">Compare Prices</span>
         </button>
         <button id="tab-discount" class="nav-tab" aria-controls="discount-page">
-          <svg class="tab-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="tab-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01"/>
           </svg>
           <span class="tab-label" data-tab="discount">Discount Calc</span>
