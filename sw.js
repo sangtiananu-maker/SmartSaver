@@ -1,5 +1,5 @@
 // SmartSaver Service Worker v2.5.0 (iOS & PWA Offline Edition)
-const CACHE_NAME = 'smartsaver-ios-v2.5.2';
+const CACHE_NAME = 'smartsaver-ios-v2.5.3';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -13,7 +13,8 @@ const STATIC_ASSETS = [
   './apple-touch-icon-120x120.png',
   './icon-192.png',
   './icon-512.png',
-  './favicon.png'
+  './favicon.png',
+  './favicon.ico'
 ];
 
 self.addEventListener('install', event => {
