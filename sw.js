@@ -1,5 +1,5 @@
 // SmartSaver Service Worker v2.5.0 (iOS & PWA Offline Edition)
-const CACHE_NAME = 'smartsaver-ios-v2.5.0';
+const CACHE_NAME = 'smartsaver-ios-v2.5.1';
 const STATIC_ASSETS = [
   './',
   './index.html',

@@ -1,13 +1,11 @@
 {
   "name": "SmartSaver",
   "short_name": "SmartSaver",
-  "id": "./",
-  "scope": "./",
-  "description": "SmartSaver - Best Value Comparison and Pro-Rata Discount Splitter with iOS 26 Liquid Glass UI.",
   "start_url": "./index.html",
+  "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#070B14",
+  "background_color": "#F8FAFC",
   "theme_color": "#F8FAFC",
   "icons": [
     {

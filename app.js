@@ -1094,9 +1094,13 @@ themeToggleBtn.addEventListener('click', () => {
 function applyTheme() {
   const isDark = state.theme === 'dark';
   if (isDark) {
+    document.documentElement.classList.add('dark-theme');
+    document.documentElement.classList.remove('light-theme');
     document.body.classList.add('dark-theme');
     document.body.classList.remove('light-theme');
   } else {
+    document.documentElement.classList.add('light-theme');
+    document.documentElement.classList.remove('dark-theme');
     document.body.classList.add('light-theme');
     document.body.classList.remove('dark-theme');
   }
@@ -2230,3 +2234,16 @@ function initIosA2hs() {
     });
   }
 }
+
+
+// ===== iOS Standalone PWA Link Lock (Prevents Safari Bottom Navigation Toolbar) =====
+document.addEventListener('click', (e) => {
+  const anchor = e.target.closest('a');
+  if (anchor) {
+    const href = anchor.getAttribute('href');
+    if (href && !href.startsWith('http') && !href.startsWith('#') && !anchor.getAttribute('target')) {
+      e.preventDefault();
+      window.location.assign(href);
+    }
+  }
+}, false);

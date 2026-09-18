@@ -114,21 +114,33 @@ button, .glass-card, .support-tier-card, .lang-select-item, .nav-tab, .glass-act
 
 html {
   font-size: clamp(14px, 4vw, 16px);
-  height: 100%;
   width: 100%;
+  height: 100%;
+  min-height: 100%;
+  min-height: -webkit-fill-available;
+  min-height: 100dvh;
   overflow: hidden;
+  background-color: var(--bg-app) !important;
+  background-image: var(--bg-body-gradient) !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overscroll-behavior-y: none !important;
+  overscroll-behavior: none !important;
 }
 
 
 /* Non-scrolling Fixed GPU Gradient Background (VividTian Theme) */
 .fixed-app-background {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
+  top: -150px;
+  left: -50px;
+  right: -50px;
+  bottom: -150px;
+  width: calc(100vw + 100px);
+  height: calc(100vh + 300px);
+  min-height: 140%;
   z-index: -1;
   pointer-events: none;
   background-image: var(--bg-body-gradient);
@@ -146,11 +158,18 @@ html, body {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-app);
-  background-image: var(--bg-body-gradient);
+  background-color: var(--bg-app) !important;
+  background-image: var(--bg-body-gradient) !important;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   color: var(--text-main);
-  height: 100%;
   width: 100%;
+  height: 100%;
+  min-height: 100%;
+  min-height: -webkit-fill-available;
+  min-height: 100dvh;
   margin: 0 !important;
   padding: 0 !important;
   display: flex;
@@ -165,19 +184,24 @@ body {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   user-select: none;
+  overscroll-behavior-y: none !important;
+  overscroll-behavior: none !important;
 }
 
 .app-viewport {
   width: 100%;
   max-width: 480px;
   height: 100%;
-  height: 100dvh;
+  min-height: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  min-height: -webkit-fill-available;
+  height: -webkit-fill-available;
   margin: 0 auto;
   padding: 0 12px;
   display: flex;
   flex-direction: column;
   position: relative;
-  overflow: hidden;
   box-sizing: border-box !important;
 }
 
