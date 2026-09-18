@@ -1,12 +1,14 @@
-﻿{
+{
   "name": "SmartSaver",
   "short_name": "SmartSaver",
-  "description": "SmartSaver - iOS Liquid Glass Price Compare & Discount Calculator",
+  "id": "./",
+  "scope": "./",
+  "description": "SmartSaver - Best Value Comparison and Pro-Rata Discount Splitter with iOS 26 Liquid Glass UI.",
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#070B14",
-  "theme_color": "#4F46E5",
+  "theme_color": "#F8FAFC",
   "icons": [
     {
       "src": "icon-192.png",
@@ -19,6 +21,11 @@
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
     }
   ]
 }

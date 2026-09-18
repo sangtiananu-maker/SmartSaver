@@ -75,10 +75,11 @@ github-upload/
 ├── apple-touch-icon.png # ไอคอนแอปสำหรับหน้าจอโฮมของ iOS
 ├── .gitignore           # กรองไฟล์ที่ไม่จำเป็นออกก่อนขึ้น GitHub
 ├── README.md            # คู่มือการใช้งานและเอกสารแนะนำโปรเจกต์
-└── android/             # ซอร์สโค้ดโปรเจกต์ Native Android App (สำหรับเปิดใน Android Studio)
+└── SmartSaver.apk       # ไฟล์แอป Android APK พร้อมติดตั้ง
 ```
 
 ---
 
 ## 👨‍💻 Created by
 Developed with ❤️ by **Tian**
+

@@ -1,58 +1,67 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
-  <title>SmartSaver</title>
-  <link rel="icon" type="image/png" href="favicon.png">
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="manifest.json">
-  <!-- iOS PWA & Liquid Glass Support -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="SmartSaver">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  <meta name="theme-color" content="#4F46E5">
-  
-  <!-- Modern iOS & One UI Feel Typography: Plus Jakarta Sans & Outfit -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#F8FAFC" id="theme-color-meta" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="SmartSaver" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="SmartSaver - Best Value Comparison and Pro-Rata Discount Splitter with iOS 26 Liquid Glass UI." />
+  <title>SmartSaver - เปรียบเทียบราคา & คำนวณส่วนลด</title>
+
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
+  <!-- Google Fonts: Sarabun & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body class="light-theme">
-  <!-- Ambient Liquid Mesh Gradient Background Orbs (GPU Isolated) -->
-  <div class="ambient-mesh-container" aria-hidden="true">
-    <div class="ambient-orb orb-1"></div>
-    <div class="ambient-orb orb-2"></div>
-    <div class="ambient-orb orb-3"></div>
-    <div class="ambient-orb orb-4"></div>
-  </div>
 
-  <!-- Main App Shell -->
-  <div class="app-container">
-    
-    <!-- Floating Top Liquid Glass Bubble Header (iOS Style Capsule) -->
+  <!-- Non-scrolling Fixed Liquid Gradient Background (VividTian Theme) -->
+  <div class="fixed-app-background" aria-hidden="true"></div>
+
+  <div class="app-viewport">
+
+    <!-- Floating Glass Island Header -->
     <div class="header-island-wrapper">
       <header class="app-header glass-bubble">
         <div class="header-content">
-          <div class="title-block">
-            <div class="title-row">
-              <div class="logo-wrapper">
-                <img src="favicon.png" class="app-logo" alt="SmartSaver Logo">
-              </div>
-              <h1 class="app-title">Smart<span class="accent-gradient">Saver</span></h1>
+          <div class="header-brand">
+            <div class="logo-wrapper">
+              <img src="apple-touch-icon.png" alt="SmartSaver Logo" class="app-logo" />
             </div>
-            <span class="app-subtitle">by Tian</span>
+            <div class="title-text-group">
+              <h1 class="app-title">Smart<span class="accent-gradient">Saver</span></h1>
+              <span class="app-subtitle">by VividTian</span>
+            </div>
           </div>
-          
+
           <div class="header-controls">
-            <!-- Language Pill Button -->
-            <button id="lang-toggle" class="glass-pill-btn" aria-label="Toggle Language">
+            <!-- Donate Button with Gift Box Icon -->
+            <button id="donate-btn" class="glass-pill-btn icon-btn" aria-label="Support Developer" title="Support Developer">
+              <svg class="gift-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                <rect x="2" y="7" width="20" height="5"></rect>
+                <line x1="12" y1="22" x2="12" y2="7"></line>
+                <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+              </svg>
+            </button>
+
+            <!-- Language Toggle Capsule -->
+            <button id="lang-toggle" class="glass-pill-btn lang-pill-btn" aria-label="Select Language" title="Select Language">
+              <svg class="globe-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
               <span class="lang-text">EN</span>
             </button>
-            
-            <!-- Theme Toggle Pill Button -->
+
+            <!-- Theme Toggle Bubble -->
             <button id="theme-toggle" class="glass-pill-btn icon-btn" aria-label="Toggle Theme">
               <!-- Sun Icon for Light Mode -->
               <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -60,8 +69,8 @@
                 <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
               </svg>
               <!-- Moon Icon for Dark Mode -->
-              <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>
+              <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" stroke="none">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
               </svg>
             </button>
           </div>
@@ -69,129 +78,290 @@
       </header>
     </div>
 
-    <!-- Scrollable Main Content -->
+    <!-- Main Content Layer: Full-screen natural scroll with title & cards in one layer -->
     <main class="app-main">
 
       <!-- ================= PAGE 1: PRICE COMPARE ================= -->
       <section id="compare-page" class="page-content active">
         
-        <!-- ONE UI VIEWING AREA: Top portion with results and descriptions -->
-        <div class="oneui-viewing-area">
-          <!-- Floating Result Liquid Glass Banner -->
-          <div id="compare-summary-card" class="summary-card result-liquid-card hidden">
-            <div class="summary-icon-wrapper">
-              <span class="summary-icon">🏆</span>
-            </div>
-            <div class="summary-text-container">
-              <div id="compare-summary-subtitle" class="summary-subtitle">Best Choice Found</div>
-              <div id="compare-best-result" class="summary-title">Product A is cheapest!</div>
-              <div id="compare-savings-details" class="summary-details">Saves 25% compared to others.</div>
-            </div>
-          </div>
+        <!-- Dedicated One UI resting top spacer (centers header in Y axis) -->
+        <div id="compare-top-spacer" class="oneui-resting-spacer"></div>
 
-          <div class="section-header">
-            <h2 id="compare-h2">Compare Product Prices</h2>
-            <p id="compare-desc" class="section-description">Fill in the price and quantity for each item. The cheapest product will highlight automatically.</p>
+        <!-- Section Header: Same continuous layer as product cards -->
+        <div class="section-header section-header-liquid oneui-header-container" id="compare-oneui-header">
+          <h2 id="compare-h2" class="liquid-title-gradient">เปรียบเทียบราคาสินค้า</h2>
+          <div class="feature-pills-row">
+            <div class="feature-pill">
+              <span class="feature-pill-icon">⚡</span>
+              <span id="feat-realtime">คำนวณเรียลไทม์</span>
+            </div>
+            <div class="feature-pill">
+              <span class="feature-pill-icon">🎯</span>
+              <span id="feat-auto">ไฮไลต์สินค้าประหยัดสุด</span>
+            </div>
           </div>
         </div>
 
-        <!-- ONE UI INTERACTION AREA: Lower 2/3 thumb-friendly reach zone -->
-        <div class="oneui-interaction-area">
-          <!-- 2-Column Responsive Product Cards Grid -->
-          <div id="compare-list" class="items-grid">
-            <!-- Cards dynamically injected via JavaScript -->
-          </div>
+        <!-- Dedicated One UI resting bottom spacer -->
+        <div id="compare-bottom-spacer" class="oneui-resting-spacer"></div>
 
-          <!-- Action Bar: Add Product & Clear All -->
-          <div class="action-bar">
-            <button id="add-compare-item-btn" class="glass-action-btn primary-action">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                <path d="M12 5v14M5 12h14"/>
-              </svg>
-              <span>Add Another Product</span>
-            </button>
-            <button id="clear-compare-btn" class="glass-action-btn danger-action">
-              Clear All
-            </button>
+        <!-- Result Banner (Positioned directly above product cards, pinned sticky on scroll) -->
+        <div id="compare-summary-card" class="summary-card result-liquid-card hidden">
+          <div class="summary-icon-wrapper">
+            <span class="summary-icon">🏆</span>
+          </div>
+          <div class="summary-text-container">
+            <div id="compare-summary-subtitle" class="summary-subtitle">Best Choice Found</div>
+            <div id="compare-best-result" class="summary-title">Product A is cheapest!</div>
+            <div id="compare-savings-details" class="summary-details">Saves 25% compared to others.</div>
           </div>
         </div>
+
+        <!-- 2-Column Responsive Product Cards Grid (Natural Full-Screen Flow) -->
+        <div id="compare-list" class="items-grid">
+          <!-- Cards dynamically injected via JavaScript -->
+        </div>
+
       </section>
 
       <!-- ================= PAGE 2: DISCOUNT CALC ================= -->
       <section id="discount-page" class="page-content">
         
-        <!-- ONE UI VIEWING AREA: Top portion with summary dashboard numbers -->
-        <div class="oneui-viewing-area">
-          <!-- Summary Dashboard in Liquid Glass -->
-          <div class="discount-summary-grid">
-            <div class="summary-box glass-card">
-              <div id="label-original-total" class="box-label">Original Total</div>
-              <div id="discount-total-original" class="box-value">0.00</div>
-            </div>
-            <div class="summary-box glass-card highlight-savings">
-              <div id="label-total-saved" class="box-label">Total Saved</div>
-              <div id="discount-total-saved" class="box-value">0.00</div>
-              <div id="discount-percent-badge" class="percent-badge hidden">0% OFF</div>
-            </div>
-          </div>
+        <!-- Dedicated One UI resting top spacer (centers header in Y axis) -->
+        <div id="discount-top-spacer" class="oneui-resting-spacer"></div>
 
-          <div class="section-header">
-            <h2 id="discount-h2">Allocate Discount Pro-Rata</h2>
-            <p id="discount-desc" class="section-description">Enter the full price of each item. The app will calculate the exact price you paid for each item based on your discount.</p>
+        <!-- Section Header for Discount Mode (One UI Top Area) -->
+        <div class="section-header section-header-liquid oneui-header-container" id="discount-oneui-header">
+          <h2 id="discount-h2" class="liquid-title-gradient">แบ่งส่วนลดตามสัดส่วน</h2>
+          <div class="feature-pills-row">
+            <div class="feature-pill">
+              <span class="feature-pill-icon">💡</span>
+              <span id="feat-discount-dist">กระจายส่วนลดแม่นยำ</span>
+            </div>
+            <div class="feature-pill">
+              <span class="feature-pill-icon">📊</span>
+              <span id="feat-discount-summary">สรุปยอดรวมสุทธิ</span>
+            </div>
           </div>
         </div>
 
-        <!-- ONE UI INTERACTION AREA: Lower 2/3 thumb-friendly reach zone -->
-        <div class="oneui-interaction-area">
-          <!-- Actual Paid Amount Card -->
-          <div class="input-card glass-card paid-amount-card">
-            <label id="label-how-much" for="discount-total-paid" class="field-label bold-label">How much did you actually pay?</label>
-            <div class="paid-input-wrapper">
-              <input type="number" id="discount-total-paid" class="input-field input-xl glass-input" placeholder="Paid price" min="0" step="any" inputmode="decimal">
-            </div>
-          </div>
+        <!-- Dedicated One UI resting bottom spacer -->
+        <div id="discount-bottom-spacer" class="oneui-resting-spacer"></div>
 
-          <!-- Dynamic Discount Rows List -->
-          <div id="discount-list" class="items-list">
-            <!-- Rows injected via JavaScript -->
-          </div>
+        <!-- Dedicated One UI resting spacer -->
 
-          <!-- Action Bar: Add Item & Clear All -->
-          <div class="action-bar">
-            <button id="add-discount-item-btn" class="glass-action-btn primary-action">
-              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                <path d="M12 5v14M5 12h14"/>
-              </svg>
-              <span>Add Another Item</span>
-            </button>
-            <button id="clear-discount-btn" class="glass-action-btn danger-action">
-              Clear All
-            </button>
+
+        <!-- Summary Dashboard in Liquid Glass -->
+        <div class="discount-summary-grid">
+          <div class="summary-box glass-card">
+            <div id="label-original-total" class="box-label">ราคาเต็มรวม</div>
+            <div id="discount-total-original" class="box-value">0.00</div>
+          </div>
+          <div class="summary-box glass-card highlight-savings">
+            <div id="label-total-saved" class="box-label">ส่วนลดรวม</div>
+            <div id="discount-total-saved" class="box-value">0.00</div>
+            <div id="discount-percent-badge" class="percent-badge hidden">0% OFF</div>
           </div>
         </div>
+
+        <!-- Actual Paid Amount Card -->
+        <div class="input-card glass-card paid-amount-card">
+          <label id="label-how-much" for="discount-total-paid" class="field-label bold-label">คุณจ่ายเงินจริงทั้งหมดเท่าไหร่?</label>
+          <div class="paid-input-wrapper">
+            <input type="number" id="discount-total-paid" class="input-field input-xl glass-input" placeholder="ยอดที่จ่ายจริง" min="0" step="any" inputmode="decimal">
+          </div>
+        </div>
+
+        <!-- Dynamic Discount Rows List -->
+        <div id="discount-list" class="items-list">
+          <!-- Rows injected via JavaScript -->
+        </div>
+
       </section>
 
     </main>
 
+    <!-- Pinned Controls Layer: Sits above the content layer without masking -->
+    <div class="pinned-action-container" id="compare-actions-bar">
+      <div class="action-bar-capsule glass-surface">
+        <button id="add-compare-item-btn" class="glass-action-btn primary-action">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          <span id="btn-add-compare-text">เพิ่มสินค้า</span>
+        </button>
+        <button id="clear-compare-btn" class="glass-action-btn danger-action">
+          <span id="btn-clear-compare-text">ล้างข้อมูล</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="pinned-action-container hidden" id="discount-actions-bar">
+      <div class="action-bar-capsule glass-surface">
+        <button id="add-discount-item-btn" class="glass-action-btn primary-action">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          <span id="btn-add-discount-text">เพิ่มสินค้า</span>
+        </button>
+        <button id="clear-discount-btn" class="glass-action-btn danger-action">
+          <span id="btn-clear-discount-text">ล้างข้อมูล</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Floating Glass Island Bottom Navigation Bar -->
     <div class="nav-island-wrapper">
-      <nav class="floating-glass-nav glass-surface">
+      <nav class="floating-glass-nav glass-surface" id="floating-glass-nav" data-active="compare">
+        <!-- Mathematically Perfect Pure CSS Indicator -->
+        <div class="liquid-tab-indicator"></div>
         <button id="tab-compare" class="nav-tab active" aria-controls="compare-page">
           <svg class="tab-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M12 3v18M12 7l8 4M12 7L4 11M4 11c0 3 3.5 5 8 5s8-2 8-5M20 21H4"/>
           </svg>
-          <span class="tab-label" data-tab="compare">Compare Prices</span>
+          <span class="tab-label" data-tab="compare">เปรียบราคา</span>
         </button>
         <button id="tab-discount" class="nav-tab" aria-controls="discount-page">
           <svg class="tab-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01"/>
           </svg>
-          <span class="tab-label" data-tab="discount">Discount Calc</span>
+          <span class="tab-label" data-tab="discount">คำนวณส่วนลด</span>
         </button>
       </nav>
     </div>
 
   </div>
+
+  <!-- ================= SUPPORT DEVELOPER & FEEDBACK MODAL ================= -->
+  <div id="support-modal-backdrop" class="modal-backdrop hidden">
+    <div id="support-modal" class="modal-sheet glass-surface">
+      
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">🎁</span>
+          <div>
+            <h3 id="modal-support-title" class="modal-title">สนับสนุนผู้พัฒนา</h3>
+            <p id="modal-support-sub" class="modal-subtitle">ส่งกำลังใจค่าน้ำชา หรือส่งข้อความแนะนำติชม</p>
+          </div>
+        </div>
+        <button id="modal-close-btn" class="btn-modal-close" aria-label="Close Modal">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Support Tiers (4 Levels) -->
+      <div class="support-section">
+        <div class="support-section-label" id="label-support-tiers">เลือกสนับสนุนผู้พัฒนา</div>
+        <div class="support-tiers-grid">
+          <!-- Tier 1: Instant Coffee ($0.30) -->
+          <div class="support-tier-card glass-card" data-product-id="tip_coffee">
+            <div class="tier-icon">☕</div>
+            <div class="tier-info">
+              <div class="tier-name" id="tier-name-coffee">Instant Coffee</div>
+              <div class="tier-desc" id="tier-desc-coffee">กาแฟสำเร็จรูป 1 ซอง</div>
+            </div>
+            <div class="tier-price" id="tier-price-coffee">0.30 USD</div>
+          </div>
+
+          <!-- Tier 2: Instant Noodle Tomyum ($0.50) -->
+          <div class="support-tier-card glass-card" data-product-id="tip_noodle">
+            <div class="tier-icon">🍜</div>
+            <div class="tier-info">
+              <div class="tier-name" id="tier-name-noodle">Instant Noodle Tomyum</div>
+              <div class="tier-desc" id="tier-desc-noodle">บะหมี่กึ่งสำเร็จรูปต้มยำ 1 ซอง</div>
+            </div>
+            <div class="tier-price" id="tier-price-noodle">0.50 USD</div>
+          </div>
+
+          <!-- Tier 3: Rice with Scrambled Egg ($1.00) -->
+          <div class="support-tier-card glass-card" data-product-id="tip_egg_rice">
+            <div class="tier-icon">🍳</div>
+            <div class="tier-info">
+              <div class="tier-name" id="tier-name-egg">Rice with Scrambled Egg</div>
+              <div class="tier-desc" id="tier-desc-egg">ข้าวไข่ข้น 1 จาน</div>
+            </div>
+            <div class="tier-price" id="tier-price-egg">1.00 USD</div>
+          </div>
+
+          <!-- Tier 4: Tomyum Kung ($5.00) -->
+          <div class="support-tier-card glass-card" data-product-id="tip_tomyum">
+            <div class="tier-icon">🍲</div>
+            <div class="tier-info">
+              <div class="tier-name" id="tier-name-tomyum">Tomyum Kung</div>
+              <div class="tier-desc" id="tier-desc-tomyum">ต้มยำกุ้งหม้อไฟชุดใหญ่</div>
+            </div>
+            <div class="tier-price" id="tier-price-tomyum">5.00 USD</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feedback & Suggestions (Direct Google Form Submission) -->
+      <div class="feedback-section">
+        <div class="feedback-section-label" id="label-feedback-title">ข้อความแนะนำติชม & แจ้งปัญหา</div>
+        <textarea id="feedback-textarea" class="feedback-input glass-input" placeholder="พิมพ์ข้อความติชม แจ้งปัญหา หรือเสนอแนะฟังก์ชันใหม่ได้เลยครับ..." rows="3"></textarea>
+        <button id="feedback-send-btn" class="btn-send-feedback">
+          <span id="btn-send-text">ส่งข้อความ</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+    <!-- ================= LANGUAGE SELECTION MODAL ================ -->
+  <div id="language-modal-backdrop" class="modal-backdrop hidden">
+    <div id="language-modal" class="modal-sheet glass-surface">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">🌐</span>
+          <div>
+            <h3 id="modal-lang-title" class="modal-title">เลือกภาษา</h3>
+            <p id="modal-lang-sub" class="modal-subtitle">Select Language</p>
+          </div>
+        </div>
+        <button id="lang-modal-close-btn" class="btn-modal-close" aria-label="Close Modal">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="lang-list-grid">
+        <button class="lang-select-item" data-lang="th"><span class="lang-flag">&#127481;&#127469;</span><div class="lang-item-names"><span class="lang-native-name">ภาษาไทย</span><span class="lang-en-name">Thai</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="en"><span class="lang-flag">&#127468;&#127463;</span><div class="lang-item-names"><span class="lang-native-name">English</span><span class="lang-en-name">English</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="lo"><span class="lang-flag">&#127473;&#127462;</span><div class="lang-item-names"><span class="lang-native-name">ພາສາລາວ</span><span class="lang-en-name">Lao</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="zh"><span class="lang-flag">&#127464;&#127475;</span><div class="lang-item-names"><span class="lang-native-name">中文</span><span class="lang-en-name">Mandarin Chinese</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="ja"><span class="lang-flag">&#127471;&#127477;</span><div class="lang-item-names"><span class="lang-native-name">日本語</span><span class="lang-en-name">Japanese</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="ko"><span class="lang-flag">&#127472;&#127479;</span><div class="lang-item-names"><span class="lang-native-name">한국어</span><span class="lang-en-name">Korean</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="es"><span class="lang-flag">&#127466;&#127480;</span><div class="lang-item-names"><span class="lang-native-name">Español</span><span class="lang-en-name">Spanish</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="fr"><span class="lang-flag">&#127467;&#127479;</span><div class="lang-item-names"><span class="lang-native-name">Français</span><span class="lang-en-name">French</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="de"><span class="lang-flag">&#127465;&#127466;</span><div class="lang-item-names"><span class="lang-native-name">Deutsch</span><span class="lang-en-name">German</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="pt"><span class="lang-flag">&#127477;&#127481;</span><div class="lang-item-names"><span class="lang-native-name">Português</span><span class="lang-en-name">Portuguese</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="id"><span class="lang-flag">&#127470;&#127465;</span><div class="lang-item-names"><span class="lang-native-name">Bahasa Indonesia</span><span class="lang-en-name">Indonesian</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="hi"><span class="lang-flag">&#127470;&#127475;</span><div class="lang-item-names"><span class="lang-native-name">हिन्दी</span><span class="lang-en-name">Hindi</span></div><span class="lang-check">✓</span></button>
+        <button class="lang-select-item" data-lang="ar"><span class="lang-flag">&#127480;&#127462;</span><div class="lang-item-names"><span class="lang-native-name">العربية</span><span class="lang-en-name">Arabic Standard</span></div><span class="lang-check">✓</span></button>
+      </div>
+    </div>
+  </div>
+
+    <!-- iOS Safari "Add to Home Screen" Smart Tip Capsule -->
+  <div id="ios-a2hs-banner" class="ios-a2hs-banner glass-bubble hidden" role="dialog" aria-live="polite">
+    <div class="ios-a2hs-content">
+      <span class="ios-a2hs-icon">📲</span>
+      <div class="ios-a2hs-text" id="ios-a2hs-text">
+        ติดตั้งบน iPhone: แตะไอคอนแชร์ <svg class="ios-share-svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg> แล้วเลือก <strong>'เพิ่มไปยังหน้าจอโฮม'</strong>
+      </div>
+    </div>
+    <button id="ios-a2hs-close" class="ios-a2hs-close-btn" aria-label="Dismiss Tip">
+      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification" class="toast-bubble hidden"></div>
 
   <script src="app.js"></script>
   <!-- PWA Offline Service Worker Registration -->
@@ -199,7 +369,7 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('SmartSaver Liquid PWA Ready:', reg.scope))
+          .then(reg => console.log('SmartSaver PWA Ready:', reg.scope))
           .catch(err => console.warn('PWA Registration Error:', err));
       });
     }

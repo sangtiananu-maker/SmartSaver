@@ -1,0 +1,726 @@
+@'
+app_js_content = """// ==========================================================================
+// SMARTSAVER — JAVASCRIPT LOGIC (iOS 26 LIQUID GLASS & ONE UI EDITION)
+// Fluid Liquid Droplet Physics, 120FPS Transitions, Real-Time Calculations
+// ==========================================================================
+
+// ===== TRANSLATION DICTIONARY =====
+const TRANSLATIONS = {
+  en: {
+    // Header & Tabs
+    tabCompare: 'Compare Prices',
+    tabDiscount: 'Discount Calc',
+    // Section Header Badges & Chips
+    compareBadgeText: 'Value Comparison Mode',
+    featRealtime: 'Real-Time Calc',
+    featAuto: 'Auto Best-Value',
+    discountBadgeText: 'Discount Pro-Rata',
+    featDiscountDist: 'Fair Proportional Split',
+    featDiscountSummary: 'Full Summary',
+    // Compare Page
+    compareSummarySubtitle: 'Best Choice Found',
+    compareH2: 'Compare Product Prices',
+    compareDesc: 'Fill in the price and quantity for each item. The cheapest product will highlight automatically.',
+    addAnotherProduct: 'Add Another Product',
+    clearAll: 'Clear All',
+    // Compare Card Labels
+    labelPrice: 'Price',
+    labelQuantity: 'Quantity',
+    labelUnitPrice: 'Unit Price',
+    labelBestValue: 'Best Value!',
+    labelCheapest: '🏆 Cheapest',
+    labelProductName: 'Product Name',
+    labelProductDefault: 'Product',
+    // Compare Results
+    resultBestChoice: '🏆 {name} is the best choice!',
+    resultSavesAvg: 'Saves you an average of {pct}% compared to others.',
+    resultTie: '⚖️ Tie between {names}',
+    resultTieSub: 'Both offer the exact same unit price value.',
+    resultSavePct: 'Save {pct}%',
+    // Discount Page
+    labelOriginalTotal: 'Original Total',
+    labelTotalSaved: 'Total Saved',
+    labelHowMuch: 'How much did you actually pay?',
+    labelPaidPrice: 'Paid price',
+    discountH2: 'Allocate Discount Pro-Rata',
+    discountDesc: 'Enter the full price of each item. The app will calculate the exact price you paid for each item based on your discount.',
+    addAnotherItem: 'Add Another Item',
+    labelItemName: 'Item Name',
+    labelFullPrice: 'Full Price',
+    labelPaid: 'Paid',
+    labelSaved: 'Saved {amount}',
+    labelPaidGtFull: 'Paid > Full Price'
+  },
+  th: {
+    // Header & Tabs
+    tabCompare: 'เปรียบราคา',
+    tabDiscount: 'คำนวณส่วนลด',
+    // Section Header Badges & Chips
+    compareBadgeText: 'โหมดเปรียบเทียบความคุ้มค่า',
+    featRealtime: 'คำนวณเรียลไทม์',
+    featAuto: 'ไฮไลต์สินค้าประหยัดสุด',
+    discountBadgeText: 'โหมดคำนวณส่วนลด',
+    featDiscountDist: 'กระจายส่วนลดแม่นยำ',
+    featDiscountSummary: 'สรุปยอดรวมสุทธิ',
+    // Compare Page
+    compareSummarySubtitle: 'พบตัวเลือกที่ดีที่สุด',
+    compareH2: 'เปรียบเทียบราคาสินค้า',
+    compareDesc: 'กรอกราคาและปริมาณของแต่ละสินค้า ระบบจะไฮไลต์สินค้าที่คุ้มค่าที่สุดให้อัตโนมัติ',
+    addAnotherProduct: 'เพิ่มสินค้า',
+    clearAll: 'ล้างข้อมูล',
+    // Compare Card Labels
+    labelPrice: 'ราคา',
+    labelQuantity: 'ปริมาณ',
+    labelUnitPrice: 'ราคาต่อหน่วย',
+    labelBestValue: 'คุ้มที่สุด!',
+    labelCheapest: '🏆 ถูกที่สุด',
+    labelProductName: 'ชื่อสินค้า',
+    labelProductDefault: 'สินค้า',
+    // Compare Results
+    resultBestChoice: '🏆 {name} คือตัวเลือกที่คุ้มที่สุด!',
+    resultSavesAvg: 'ประหยัดเฉลี่ย {pct}% เมื่อเทียบกับตัวเลือกอื่น',
+    resultTie: '⚖️ ราคาเท่ากันระหว่าง {names}',
+    resultTieSub: 'ทั้งคู่ให้ราคาต่อหน่วยที่คุ้มค่าเท่ากันทุกประการ',
+    resultSavePct: 'ประหยัด {pct}%',
+    // Discount Page
+    labelOriginalTotal: 'ราคาเต็มรวม',
+    labelTotalSaved: 'ส่วนลดรวม',
+    labelHowMuch: 'คุณจ่ายเงินจริงทั้งหมดเท่าไหร่?',
+    labelPaidPrice: 'ยอดที่จ่ายจริง',
+    discountH2: 'แบ่งส่วนลดตามสัดส่วน',
+    discountDesc: 'กรอกราคาเต็มของแต่ละสินค้า ระบบจะคำนวณราคาที่คุณจ่ายจริงสำหรับแต่ละชิ้นให้อัตโนมัติ',
+    addAnotherItem: 'เพิ่มสินค้า',
+    labelItemName: 'ชื่อสินค้า',
+    labelFullPrice: 'ราคาเต็ม',
+    labelPaid: 'จ่ายจริง',
+    labelSaved: 'ประหยัด {amount}',
+    labelPaidGtFull: 'จ่ายเกินราคาเต็ม'
+  }
+};
+
+// ===== APP STATE =====
+const state = {
+  activeTab: 'compare',
+  theme: 'light',
+  lang: 'th',
+  compareItems: [],
+  discountItems: [],
+  discountPaid: ''
+};
+
+function t(key, vars) {
+  const lang = state.lang || 'th';
+  let str = (TRANSLATIONS[lang] && TRANSLATIONS[lang][key]) || TRANSLATIONS['en'][key] || key;
+  if (vars) {
+    Object.keys(vars).forEach(k => {
+      str = str.replace(new RegExp(`\\\\{${k}\\\\}`, 'g'), vars[k]);
+    });
+  }
+  return str;
+}
+
+function createNewCompareItem(index) {
+  return {
+    id: 'c_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+    name: `${t('labelProductDefault')} ${index}`,
+    price: '',
+    quantity: '1',
+    unitPrice: null
+  };
+}
+
+function createNewDiscountItem(index) {
+  return {
+    id: 'd_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+    name: `${t('labelItemName')} ${index}`,
+    fullPrice: '',
+    paidPrice: null,
+    savedPrice: null
+  };
+}
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('smartsaver_liquid_state');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      state.theme = parsed.theme || 'light';
+      state.lang = parsed.lang || 'th';
+      state.activeTab = parsed.activeTab || 'compare';
+      state.compareItems = Array.isArray(parsed.compareItems) && parsed.compareItems.length >= 2
+        ? parsed.compareItems
+        : [createNewCompareItem(1), createNewCompareItem(2)];
+      state.discountItems = Array.isArray(parsed.discountItems) && parsed.discountItems.length >= 2
+        ? parsed.discountItems
+        : [createNewDiscountItem(1), createNewDiscountItem(2)];
+      state.discountPaid = parsed.discountPaid || '';
+      return;
+    }
+  } catch (e) {
+    console.warn('Failed to parse localStorage:', e);
+  }
+
+  state.compareItems = [createNewCompareItem(1), createNewCompareItem(2)];
+  state.discountItems = [createNewDiscountItem(1), createNewDiscountItem(2)];
+}
+
+function saveState() {
+  const data = {
+    compareItems: state.compareItems,
+    discountItems: state.discountItems,
+    discountPaid: state.discountPaid,
+    activeTab: state.activeTab,
+    theme: state.theme,
+    lang: state.lang
+  };
+  localStorage.setItem('smartsaver_liquid_state', JSON.stringify(data));
+}
+
+// ===== DOM REFERENCES =====
+const themeToggleBtn         = document.getElementById('theme-toggle');
+const langToggleBtn          = document.getElementById('lang-toggle');
+const tabCompare             = document.getElementById('tab-compare');
+const tabDiscount            = document.getElementById('tab-discount');
+const comparePage            = document.getElementById('compare-page');
+const discountPage           = document.getElementById('discount-page');
+const liquidTabIndicator     = document.getElementById('liquid-tab-indicator');
+
+const compareListContainer   = document.getElementById('compare-list');
+const addCompareItemBtn      = document.getElementById('add-compare-item-btn');
+const clearCompareBtn        = document.getElementById('clear-compare-btn');
+
+const discountListContainer  = document.getElementById('discount-list');
+const addDiscountItemBtn     = document.getElementById('add-discount-item-btn');
+const clearDiscountBtn       = document.getElementById('clear-discount-btn');
+const discountPaidInput       = document.getElementById('discount-total-paid');
+
+const compareSummaryCard     = document.getElementById('compare-summary-card');
+const compareBestResult      = document.getElementById('compare-best-result');
+const compareSavingsDetails  = document.getElementById('compare-savings-details');
+const compareSummarySubtitle = document.getElementById('compare-summary-subtitle');
+
+const discountTotalOriginal  = document.getElementById('discount-total-original');
+const discountTotalSaved     = document.getElementById('discount-total-saved');
+const discountPercentBadge   = document.getElementById('discount-percent-badge');
+
+// ===== INITIALIZATION =====
+document.addEventListener('DOMContentLoaded', () => {
+  loadState();
+  applyTheme();
+  applyLang();
+  applyTabInstant();
+
+  discountPaidInput.value = state.discountPaid;
+
+  renderCompareList();
+  renderDiscountList();
+  calculateCompare();
+  calculateDiscount();
+
+  discountPaidInput.addEventListener('input', (e) => {
+    state.discountPaid = e.target.value;
+    calculateDiscount();
+  });
+
+  window.addEventListener('resize', () => {
+    const activeTabBtn = state.activeTab === 'compare' ? tabCompare : tabDiscount;
+    updateLiquidTabIndicator(activeTabBtn, false);
+  });
+});
+
+// ===== THEME TOGGLE & ANDROID NATIVE BRIDGE =====
+themeToggleBtn.addEventListener('click', () => {
+  state.theme = state.theme === 'light' ? 'dark' : 'light';
+  applyTheme();
+  saveState();
+});
+
+function applyTheme() {
+  const isDark = state.theme === 'dark';
+  if (isDark) {
+    document.body.classList.add('dark-theme');
+    document.body.classList.remove('light-theme');
+  } else {
+    document.body.classList.add('light-theme');
+    document.body.classList.remove('dark-theme');
+  }
+
+  if (window.AndroidBridge && typeof window.AndroidBridge.setDarkMode === 'function') {
+    try {
+      window.AndroidBridge.setDarkMode(isDark);
+    } catch (err) {
+      console.warn('AndroidBridge call failed:', err);
+    }
+  }
+}
+
+// ===== LANGUAGE TOGGLE =====
+langToggleBtn.addEventListener('click', () => {
+  state.lang = state.lang === 'th' ? 'en' : 'th';
+  applyLang();
+  saveState();
+});
+
+function applyLang() {
+  langToggleBtn.querySelector('.lang-text').textContent = state.lang === 'th' ? 'EN' : 'TH';
+
+  // Static Tabs
+  document.querySelector('.tab-label[data-tab="compare"]').textContent = t('tabCompare');
+  document.querySelector('.tab-label[data-tab="discount"]').textContent = t('tabDiscount');
+
+  // Redesigned Badges & Chips
+  const compareBadge = document.getElementById('compare-badge-text');
+  if (compareBadge) compareBadge.textContent = t('compareBadgeText');
+  const featRealtime = document.getElementById('feat-realtime');
+  if (featRealtime) featRealtime.textContent = t('featRealtime');
+  const featAuto = document.getElementById('feat-auto');
+  if (featAuto) featAuto.textContent = t('featAuto');
+
+  const discountBadge = document.getElementById('discount-badge-text');
+  if (discountBadge) discountBadge.textContent = t('discountBadgeText');
+  const featDiscDist = document.getElementById('feat-discount-dist');
+  if (featDiscDist) featDiscDist.textContent = t('featDiscountDist');
+  const featDiscSummary = document.getElementById('feat-discount-summary');
+  if (featDiscSummary) featDiscSummary.textContent = t('featDiscountSummary');
+
+  // Compare Page Static Texts
+  document.getElementById('compare-h2').textContent = t('compareH2');
+  document.getElementById('add-compare-item-btn').querySelector('span').textContent = t('addAnotherProduct');
+  document.getElementById('clear-compare-btn').textContent = t('clearAll');
+  if (compareSummarySubtitle) compareSummarySubtitle.textContent = t('compareSummarySubtitle');
+
+  // Discount Page Static Texts
+  document.getElementById('discount-h2').textContent = t('discountH2');
+  document.getElementById('label-original-total').textContent = t('labelOriginalTotal');
+  document.getElementById('label-total-saved').textContent = t('labelTotalSaved');
+  document.getElementById('label-how-much').textContent = t('labelHowMuch');
+  discountPaidInput.placeholder = t('labelPaidPrice');
+  document.getElementById('add-discount-item-btn').querySelector('span').textContent = t('addAnotherItem');
+  document.getElementById('clear-discount-btn').textContent = t('clearAll');
+
+  renderCompareList();
+  renderDiscountList();
+  calculateCompare();
+  calculateDiscount();
+}
+
+// ===== TAB NAVIGATION WITH LIQUID DROPLET INDICATOR & SPRING SLIDE =====
+tabCompare.addEventListener('click', () => switchTab('compare'));
+tabDiscount.addEventListener('click', () => switchTab('discount'));
+
+function updateLiquidTabIndicator(targetTab, animate = true) {
+  if (!liquidTabIndicator || !targetTab) return;
+  const navContainer = targetTab.parentElement;
+  const navRect = navContainer.getBoundingClientRect();
+  const tabRect = targetTab.getBoundingClientRect();
+  const leftOffset = tabRect.left - navRect.left;
+  const width = tabRect.width;
+
+  liquidTabIndicator.style.width = `${width}px`;
+
+  if (animate) {
+    liquidTabIndicator.style.transform = `translateX(${leftOffset}px) scaleX(1.18) scaleY(0.88)`;
+    setTimeout(() => {
+      liquidTabIndicator.style.transform = `translateX(${leftOffset}px) scale(1)`;
+    }, 180);
+  } else {
+    liquidTabIndicator.style.transform = `translateX(${leftOffset}px) scale(1)`;
+  }
+}
+
+function applyTabInstant() {
+  const isCompare = state.activeTab === 'compare';
+  tabCompare.classList.toggle('active', isCompare);
+  tabDiscount.classList.toggle('active', !isCompare);
+  comparePage.classList.toggle('active', isCompare);
+  discountPage.classList.toggle('active', !isCompare);
+
+  requestAnimationFrame(() => {
+    updateLiquidTabIndicator(isCompare ? tabCompare : tabDiscount, false);
+  });
+}
+
+function switchTab(newTabName) {
+  if (state.activeTab === newTabName) return;
+  const oldTabName = state.activeTab;
+  state.activeTab = newTabName;
+
+  const oldPage = oldTabName === 'compare' ? comparePage : discountPage;
+  const newPage = newTabName === 'compare' ? comparePage : discountPage;
+  const targetTabBtn = newTabName === 'compare' ? tabCompare : tabDiscount;
+
+  updateLiquidTabIndicator(targetTabBtn, true);
+
+  tabCompare.classList.toggle('active', newTabName === 'compare');
+  tabDiscount.classList.toggle('active', newTabName === 'discount');
+
+  const isForward = newTabName === 'discount';
+  oldPage.classList.remove('active', 'slide-in-left', 'slide-in-right');
+  oldPage.classList.add(isForward ? 'slide-out-left' : 'slide-out-right');
+
+  newPage.classList.remove('slide-out-left', 'slide-out-right');
+  newPage.classList.add('active', isForward ? 'slide-in-right' : 'slide-in-left');
+
+  setTimeout(() => {
+    oldPage.classList.remove('slide-out-left', 'slide-out-right');
+    newPage.classList.remove('slide-in-left', 'slide-in-right');
+  }, 420);
+
+  saveState();
+}
+
+// ===== NUMBER FORMATTERS =====
+function formatCurrency(val) {
+  const num = parseFloat(val);
+  if (isNaN(num)) return '0.00';
+  return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function formatUnitPrice(val) {
+  const num = parseFloat(val);
+  if (isNaN(num)) return '-';
+  if (num < 0.01 && num > 0) return num.toFixed(4);
+  return num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+// ===== LIQUID DROPLET RISING ANIMATION (User Special Request) =====
+function triggerLiquidDropRise(fromElement, onComplete) {
+  const rect = fromElement.getBoundingClientRect();
+  const bubble = document.createElement('div');
+  bubble.className = 'liquid-droplet-bubble';
+  bubble.style.left = `${rect.left + rect.width / 2}px`;
+  bubble.style.top = `${rect.top}px`;
+  document.body.appendChild(bubble);
+
+  setTimeout(() => {
+    bubble.remove();
+    if (typeof onComplete === 'function') onComplete();
+  }, 380);
+}
+
+// ==========================================================================
+// PRICE COMPARISON PAGE LOGIC
+// ==========================================================================
+function renderCompareList(newlyAddedId = null) {
+  compareListContainer.innerHTML = '';
+
+  state.compareItems.forEach((item, index) => {
+    const card = document.createElement('div');
+    card.className = 'glass-card compare-card';
+    if (item.id === newlyAddedId) {
+      card.classList.add('newly-spawned');
+    }
+    card.id = `comp_card_${item.id}`;
+
+    const defaultName = `${t('labelProductDefault')} ${index + 1}`;
+
+    card.innerHTML = `
+      <div class="card-header">
+        <input type="text" class="card-title-field" value="${item.name}" placeholder="${defaultName}" data-id="${item.id}" data-field="name">
+        ${state.compareItems.length > 2 ? `
+          <button class="btn-remove-card" data-id="${item.id}" aria-label="Remove Product">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <path d="M18 6L6 18M6 6l12 12"/>
+            </svg>
+          </button>
+        ` : ''}
+      </div>
+
+      <div class="input-group">
+        <label class="field-label">${t('labelPrice')}</label>
+        <input type="number" class="input-field price-input" placeholder="0.00" value="${item.price}" min="0" step="any" inputmode="decimal" data-id="${item.id}" data-field="price">
+      </div>
+
+      <div class="input-group">
+        <label class="field-label">${t('labelQuantity')}</label>
+        <input type="number" class="input-field qty-input" placeholder="1" value="${item.quantity || '1'}" min="0.001" step="any" inputmode="decimal" data-id="${item.id}" data-field="quantity">
+      </div>
+
+      <div class="unit-price-display">
+        <span class="unit-price-label">${t('labelUnitPrice')}</span>
+        <span class="unit-price-val" id="comp_unit_${item.id}">-</span>
+      </div>
+    `;
+
+    compareListContainer.appendChild(card);
+  });
+
+  // Remove card listeners
+  compareListContainer.querySelectorAll('.btn-remove-card').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
+      state.compareItems = state.compareItems.filter(x => x.id !== id);
+      renderCompareList();
+      calculateCompare();
+    });
+  });
+
+  // Instant input replacement without backspacing
+  compareListContainer.querySelectorAll('.price-input, .qty-input, .card-title-field').forEach(input => {
+    input.addEventListener('focus', () => {
+      input.select();
+    });
+
+    input.addEventListener('input', (e) => {
+      const id = input.getAttribute('data-id');
+      const field = input.getAttribute('data-field');
+      const item = state.compareItems.find(x => x.id === id);
+      if (item) {
+        item[field] = e.target.value;
+        calculateCompare();
+      }
+    });
+  });
+}
+
+function calculateCompare() {
+  let validItems = [];
+
+  state.compareItems.forEach(item => {
+    const price = parseFloat(item.price);
+    const qty   = parseFloat(item.quantity);
+    const unitPriceEl = document.getElementById(`comp_unit_${item.id}`);
+    const cardEl = document.getElementById(`comp_card_${item.id}`);
+
+    if (cardEl) {
+      cardEl.classList.remove('cheapest-active');
+      const existingBadge = cardEl.querySelector('.cheapest-badge');
+      if (existingBadge) existingBadge.remove();
+    }
+
+    if (!isNaN(price) && price > 0 && !isNaN(qty) && qty > 0) {
+      const unitVal = price / qty;
+      item.unitPrice = unitVal;
+      if (unitPriceEl) unitPriceEl.innerText = formatUnitPrice(unitVal);
+      validItems.push(item);
+    } else {
+      item.unitPrice = null;
+      if (unitPriceEl) unitPriceEl.innerText = '-';
+    }
+  });
+
+  if (validItems.length < 2) {
+    compareSummaryCard.classList.add('hidden');
+    return;
+  }
+
+  let minUnitPrice = Infinity;
+  validItems.forEach(item => {
+    if (item.unitPrice < minUnitPrice) {
+      minUnitPrice = item.unitPrice;
+    }
+  });
+
+  const cheapestItems = validItems.filter(item => Math.abs(item.unitPrice - minUnitPrice) < 0.00001);
+
+  cheapestItems.forEach(item => {
+    const cardEl = document.getElementById(`comp_card_${item.id}`);
+    if (cardEl) {
+      cardEl.classList.add('cheapest-active');
+      const badge = document.createElement('div');
+      badge.className = 'cheapest-badge';
+      badge.innerText = t('labelCheapest');
+      cardEl.appendChild(badge);
+    }
+  });
+
+  compareSummaryCard.classList.remove('hidden');
+
+  if (cheapestItems.length === 1) {
+    const winner = cheapestItems[0];
+    compareBestResult.innerText = t('resultBestChoice', { name: winner.name || t('labelProductDefault') });
+
+    const others = validItems.filter(x => x.id !== winner.id);
+    if (others.length > 0) {
+      const avgOtherPrice = others.reduce((sum, x) => sum + x.unitPrice, 0) / others.length;
+      const savingPct = ((avgOtherPrice - winner.unitPrice) / avgOtherPrice) * 100;
+      if (savingPct > 0) {
+        compareSavingsDetails.innerText = t('resultSavesAvg', { pct: savingPct.toFixed(1) });
+      } else {
+        compareSavingsDetails.innerText = '';
+      }
+    }
+  } else {
+    const names = cheapestItems.map(x => x.name || t('labelProductDefault')).join(' & ');
+    compareBestResult.innerText = t('resultTie', { names });
+    compareSavingsDetails.innerText = t('resultTieSub');
+  }
+}
+
+// Add Compare Item with Liquid Droplet Animation
+addCompareItemBtn.addEventListener('click', () => {
+  triggerLiquidDropRise(addCompareItemBtn, () => {
+    const newItem = createNewCompareItem(state.compareItems.length + 1);
+    state.compareItems.push(newItem);
+    renderCompareList(newItem.id);
+    calculateCompare();
+
+    // Auto-scroll to newly spawned product
+    setTimeout(() => {
+      const newCard = document.getElementById(`comp_card_${newItem.id}`);
+      if (newCard) {
+        newCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }, 60);
+  });
+});
+
+// Clear All Compare Items
+clearCompareBtn.addEventListener('click', () => {
+  state.compareItems = [createNewCompareItem(1), createNewCompareItem(2)];
+  renderCompareList();
+  calculateCompare();
+});
+
+// ==========================================================================
+// DISCOUNT PRO-RATA CALCULATION PAGE LOGIC
+// ==========================================================================
+function renderDiscountList() {
+  discountListContainer.innerHTML = '';
+
+  state.discountItems.forEach((item, index) => {
+    const card = document.createElement('div');
+    card.className = 'glass-card discount-row-card';
+    card.id = `disc_card_${item.id}`;
+
+    const defaultName = `${t('labelItemName')} ${index + 1}`;
+
+    card.innerHTML = `
+      <div class="discount-item-inputs">
+        <div class="input-group">
+          <label class="field-label">${t('labelItemName')}</label>
+          <input type="text" class="input-field card-title-field" value="${item.name}" placeholder="${defaultName}" data-id="${item.id}" data-field="name">
+        </div>
+        <div class="input-group">
+          <label class="field-label">${t('labelFullPrice')}</label>
+          <input type="number" class="input-field discount-input" placeholder="0.00" value="${item.fullPrice}" min="0" step="any" inputmode="decimal" data-id="${item.id}" data-field="fullPrice">
+        </div>
+      </div>
+
+      <div class="discount-price-output">
+        <div class="discount-calculated-label">${t('labelPaid')}</div>
+        <div class="discount-calculated-price" id="disc_out_price_${item.id}">-</div>
+        <div class="discount-saving-subtext" id="disc_out_saved_${item.id}"></div>
+      </div>
+
+      ${state.discountItems.length > 2 ? `
+        <button class="btn-remove-card" data-id="${item.id}" aria-label="Remove Item">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+      ` : ''}
+    `;
+
+    discountListContainer.appendChild(card);
+  });
+
+  discountListContainer.querySelectorAll('.btn-remove-card').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = btn.getAttribute('data-id');
+      state.discountItems = state.discountItems.filter(x => x.id !== id);
+      renderDiscountList();
+      calculateDiscount();
+    });
+  });
+
+  discountListContainer.querySelectorAll('.discount-input, .card-title-field').forEach(input => {
+    input.addEventListener('focus', () => {
+      input.select();
+    });
+
+    input.addEventListener('input', (e) => {
+      const id = input.getAttribute('data-id');
+      const field = input.getAttribute('data-field');
+      const item = state.discountItems.find(x => x.id === id);
+      if (item) {
+        item[field] = e.target.value;
+        calculateDiscount();
+      }
+    });
+  });
+}
+
+function calculateDiscount() {
+  let totalOriginalVal = 0;
+  const validItems = [];
+
+  state.discountItems.forEach(item => {
+    const fullPrice = parseFloat(item.fullPrice);
+    const outPriceEl = document.getElementById(`disc_out_price_${item.id}`);
+    const outSavedEl = document.getElementById(`disc_out_saved_${item.id}`);
+    if (outPriceEl) outPriceEl.innerText = '-';
+    if (outSavedEl) outSavedEl.innerText = '';
+
+    if (!isNaN(fullPrice) && fullPrice > 0) {
+      totalOriginalVal += fullPrice;
+      validItems.push({ id: item.id, fullPrice });
+    }
+  });
+
+  discountTotalOriginal.innerText = formatCurrency(totalOriginalVal);
+
+  const paidPrice = parseFloat(state.discountPaid);
+  if (isNaN(paidPrice) || paidPrice < 0 || totalOriginalVal <= 0 || paidPrice > totalOriginalVal) {
+    discountTotalSaved.innerText = '0.00';
+    discountPercentBadge.classList.add('hidden');
+    if (paidPrice > totalOriginalVal) {
+      discountTotalSaved.innerText = t('labelPaidGtFull');
+      discountTotalSaved.style.fontSize = '1.05rem';
+    } else {
+      discountTotalSaved.style.fontSize = '1.8rem';
+    }
+    return;
+  }
+
+  discountTotalSaved.style.fontSize = '1.8rem';
+  const totalSavedVal = totalOriginalVal - paidPrice;
+  discountTotalSaved.innerText = formatCurrency(totalSavedVal);
+
+  const discountPercent = (totalSavedVal / totalOriginalVal) * 100;
+  if (discountPercent > 0) {
+    discountPercentBadge.innerText = `${discountPercent.toFixed(0)}% OFF`;
+    discountPercentBadge.classList.remove('hidden');
+  } else {
+    discountPercentBadge.classList.add('hidden');
+  }
+
+  const discountRate = totalSavedVal / totalOriginalVal;
+  validItems.forEach(item => {
+    const savedForThis = item.fullPrice * discountRate;
+    const paidForThis  = item.fullPrice - savedForThis;
+    const outPriceEl = document.getElementById(`disc_out_price_${item.id}`);
+    const outSavedEl = document.getElementById(`disc_out_saved_${item.id}`);
+    if (outPriceEl) outPriceEl.innerText = formatCurrency(paidForThis);
+    if (outSavedEl && savedForThis > 0) {
+      outSavedEl.innerText = t('labelSaved', { amount: formatCurrency(savedForThis) });
+    }
+  });
+}
+
+// Add Discount Item with Liquid Droplet Animation
+addDiscountItemBtn.addEventListener('click', () => {
+  triggerLiquidDropRise(addDiscountItemBtn, () => {
+    state.discountItems.push(createNewDiscountItem(state.discountItems.length + 1));
+    renderDiscountList();
+    calculateDiscount();
+  });
+});
+
+// Clear All Discount Items
+clearDiscountBtn.addEventListener('click', () => {
+  state.discountItems = [createNewDiscountItem(1), createNewDiscountItem(2)];
+  state.discountPaid = '';
+  discountPaidInput.value = '';
+  renderDiscountList();
+  calculateDiscount();
+});
+"""
+
+dest = r"d:\sangtian.a\Sangtian - PS\Antigravity\Cheaper Discount App\web\app.js"
+with open(dest, "w", encoding="utf-8") as f:
+    f.write(app_js_content)
+print("Updated web/app.js")
+'@ | Set-Content -Path "d:\sangtian.a\Sangtian - PS\Antigravity\Cheaper Discount App\update_appjs.py" -Encoding utf8
+python "d:\sangtian.a\Sangtian - PS\Antigravity\Cheaper Discount App\update_appjs.py"
+Remove-Item "d:\sangtian.a\Sangtian - PS\Antigravity\Cheaper Discount App\update_appjs.py" -Force

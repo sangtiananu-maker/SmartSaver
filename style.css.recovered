@@ -1,0 +1,1138 @@
+:root {
+  /* Dynamic Color Tokens */
+  --primary: #4F46E5;
+  --primary-glow: rgba(79, 70, 229, 0.4);
+  --primary-light: rgba(99, 102, 241, 0.14);
+  --accent-pink: #EC4899;
+  --accent-cyan: #06B6D4;
+  --accent-amber: #F59E0B;
+  
+  --success: #10B981;
+  --success-glow: rgba(16, 185, 129, 0.4);
+  --success-light: rgba(16, 185, 129, 0.16);
+  --success-border: rgba(52, 211, 153, 0.55);
+  
+  --danger: #EF4444;
+  --danger-light: rgba(239, 68, 68, 0.14);
+  --danger-glow: rgba(239, 68, 68, 0.38);
+
+  /* iOS 26 Light Liquid Glass Tokens */
+  --bg-app: #F8FAFC;
+  --bg-body-gradient: radial-gradient(circle at 50% -10%, #FFFFFF 0%, #EFF6FF 40%, #F1F5F9 100%);
+  
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-bg-elevated: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.88);
+  --glass-border-subtle: rgba(255, 255, 255, 0.5);
+  --glass-specular: inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
+  --glass-prismatic: 0 0 0 1px rgba(255, 255, 255, 0.7), inset 0 0 12px rgba(255, 255, 255, 0.5);
+
+  --glass-shadow-sm: 0 4px 14px -2px rgba(0, 0, 0, 0.06);
+  --glass-shadow-md: 0 14px 32px -6px rgba(0, 0, 0, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  --glass-shadow-lg: 0 24px 48px -12px rgba(99, 102, 241, 0.16), 0 8px 24px -4px rgba(0, 0, 0, 0.05);
+  --glass-shadow-bubble: 0 16px 36px -4px rgba(0, 0, 0, 0.12), 0 4px 14px rgba(0, 0, 0, 0.05);
+  --glass-shadow-cheapest: 0 18px 40px -6px rgba(16, 185, 129, 0.35), inset 0 0 0 1.8px rgba(16, 185, 129, 0.55);
+
+  --text-main: #0F172A;
+  --text-muted: #64748B;
+  --text-dim: #94A3B8;
+
+  --input-bg: rgba(241, 245, 249, 0.75);
+  --input-border: rgba(203, 213, 225, 0.8);
+  --input-focus-border: #6366F1;
+  --input-focus-glow: 0 0 0 3.5px rgba(99, 102, 241, 0.25);
+
+  /* Curvature & Radii */
+  --radius-xs: 10px;
+  --radius-sm: 16px;
+  --radius-md: 22px;
+  --radius-lg: 28px;
+  --radius-pill: 9999px;
+
+  /* Apple Fluid Motion Springs */
+  --spring-snappy: cubic-bezier(0.16, 1, 0.3, 1);
+  --spring-fluid: cubic-bezier(0.32, 0.72, 0, 1);
+  --spring-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --spring-droplet: cubic-bezier(0.25, 1.4, 0.45, 1);
+
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* iOS 26 Dark Liquid Glass Tokens */
+.dark-theme {
+  --bg-app: #070B14;
+  --bg-body-gradient: radial-gradient(circle at 50% -10%, #1E1B4B 0%, #0F172A 40%, #070B14 100%);
+
+  --glass-bg: rgba(15, 23, 42, 0.68);
+  --glass-bg-elevated: rgba(30, 41, 59, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --glass-specular: inset 0 1.5px 2px 0 rgba(255, 255, 255, 0.3), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.4);
+  --glass-prismatic: 0 0 0 1px rgba(255, 255, 255, 0.15), inset 0 0 16px rgba(99, 102, 241, 0.12);
+
+  --glass-shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --glass-shadow-md: 0 18px 40px -4px rgba(0, 0, 0, 0.65);
+  --glass-shadow-lg: 0 26px 56px -10px rgba(0, 0, 0, 0.85), 0 0 32px rgba(79, 70, 229, 0.2);
+  --glass-shadow-bubble: 0 18px 42px -4px rgba(0, 0, 0, 0.7), 0 0 24px rgba(79, 70, 229, 0.25);
+  --glass-shadow-cheapest: 0 22px 50px -8px rgba(16, 185, 129, 0.4), inset 0 0 0 1.8px rgba(52, 211, 153, 0.65);
+
+  --text-main: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+
+  --input-bg: rgba(15, 23, 42, 0.82);
+  --input-border: rgba(51, 65, 85, 0.88);
+  --input-focus-border: #818CF8;
+  --input-focus-glow: 0 0 0 3.5px rgba(129, 140, 248, 0.35);
+}
+
+/* ==========================================================================
+   RESET & ELDER-FRIENDLY ACCESSIBLE BASE
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  font-size: clamp(15px, 4.3vw, 17.5px);
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  background-image: var(--bg-body-gradient);
+  color: var(--text-main);
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  overflow-x: hidden;
+  transition: background-color 0.4s var(--spring-fluid), color 0.4s var(--spring-fluid);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   AMBIENT LIQUID MESH BACKGROUND (GPU ISOLATED)
+   ========================================================================== */
+.ambient-mesh-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  opacity: 0.65;
+  contain: strict;
+  transform: translateZ(0);
+  will-change: transform;
+  transition: opacity 0.5s ease;
+}
+
+.dark-theme .ambient-mesh-container {
+  opacity: 0.8;
+}
+
+body:focus-within .ambient-orb {
+  animation-play-state: paused;
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.orb-1 {
+  top: -12%;
+  left: -15%;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, #4F46E5 0%, rgba(99, 102, 241, 0.45) 60%, transparent 80%);
+  animation: floatOrb1 18s infinite alternate;
+}
+
+.orb-2 {
+  top: 30%;
+  right: -20%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #06B6D4 0%, rgba(14, 165, 233, 0.4) 60%, transparent 80%);
+  animation: floatOrb2 22s infinite alternate;
+}
+
+.orb-3 {
+  bottom: 5%;
+  left: -10%;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(circle, #8B5CF6 0%, rgba(236, 72, 153, 0.35) 60%, transparent 80%);
+  animation: floatOrb3 20s infinite alternate;
+}
+
+.orb-4 {
+  top: 55%;
+  left: 30%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #10B981 0%, rgba(52, 211, 153, 0.3) 60%, transparent 80%);
+  animation: floatOrb4 24s infinite alternate;
+}
+
+@keyframes floatOrb1 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(50px, 60px, 0) scale(1.12); }
+  100% { transform: translate3d(-20px, 90px, 0) scale(0.95); }
+}
+
+@keyframes floatOrb2 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-60px, -40px, 0) scale(1.08); }
+  100% { transform: translate3d(30px, 70px, 0) scale(0.92); }
+}
+
+@keyframes floatOrb3 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(40px, -60px, 0) scale(1.1); }
+  100% { transform: translate3d(-50px, 30px, 0) scale(0.98); }
+}
+
+@keyframes floatOrb4 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-40px, 40px, 0) scale(1.14); }
+  100% { transform: translate3d(30px, -50px, 0) scale(0.9); }
+}
+
+/* ==========================================================================
+   APP CONTAINER & VIEWPORT
+   ========================================================================== */
+.app-container {
+  width: 100%;
+  max-width: 580px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  padding: 0 14px 100px 14px;
+}
+
+/* ==========================================================================
+   ENHANCED LIQUID GLASS SURFACE PRIMITIVES
+   ========================================================================== */
+.glass-surface {
+  background: var(--glass-bg);
+  backdrop-filter: blur(32px) saturate(220%) brightness(105%);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(105%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-md), var(--glass-specular);
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(28px) saturate(200%) brightness(105%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(105%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-sm), var(--glass-specular);
+  border-radius: var(--radius-md);
+  transition: transform 0.25s var(--spring-fluid), box-shadow 0.25s var(--spring-fluid), border-color 0.25s var(--spring-fluid);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Specular Shimmer Sweep Effect */
+.glass-card::before, .glass-action-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+  transform: skewX(-22deg);
+  pointer-events: none;
+  transition: left 0.7s ease;
+}
+
+.glass-card:hover::before, .glass-action-btn:hover::before {
+  left: 140%;
+}
+
+/* ==========================================================================
+   FLOATING TOP BUBBLE HEADER (With Android Safe-Area Inset)
+   ========================================================================== */
+.header-island-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 0 2px;
+  padding-top: max(14px, env(safe-area-inset-top, 28px));
+  margin-bottom: 8px;
+  pointer-events: none;
+}
+
+.app-header.glass-bubble {
+  pointer-events: auto;
+  width: 100%;
+  border-radius: var(--radius-pill);
+  padding: 8px 18px;
+  background: var(--glass-bg-elevated);
+  backdrop-filter: blur(34px) saturate(230%) brightness(106%);
+  -webkit-backdrop-filter: blur(34px) saturate(230%) brightness(106%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-bubble), var(--glass-specular);
+  transition: all 0.3s var(--spring-fluid);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Logo vertically centered on Y-axis between SmartSaver and by Tian */
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-wrapper {
+  width: 38px;
+  height: 38px;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.app-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(99, 102, 241, 0.3));
+  transition: transform 0.3s var(--spring-bounce);
+}
+
+.header-brand:hover .app-logo {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.title-text-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0px;
+}
+
+.app-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.22rem, 4.8vw, 1.45rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--text-main);
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, #4F46E5 0%, #EC4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-subtitle {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  line-height: 1;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.glass-pill-btn {
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  height: 36px;
+  min-width: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-main);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s var(--spring-bounce);
+  padding: 0 10px;
+}
+
+.dark-theme .glass-pill-btn {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-pill-btn:active {
+  transform: scale(0.92);
+}
+
+.glass-pill-btn.icon-btn {
+  width: 36px;
+  padding: 0;
+}
+
+.glass-pill-btn .lang-text {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.sun-icon { display: block; color: #F59E0B; }
+.moon-icon { display: none; color: #818CF8; }
+.dark-theme .sun-icon { display: none; }
+.dark-theme .moon-icon { display: block; }
+
+/* ==========================================================================
+   REDESIGNED APPLE iOS 26 MINIMALIST SECTION HEADER
+   ========================================================================== */
+.section-header-liquid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 6px 0 12px 0;
+  gap: 5px;
+}
+
+.header-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.03em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.1);
+}
+
+.dark-theme .header-badge-pill {
+  background: rgba(129, 140, 248, 0.15);
+  border-color: rgba(129, 140, 248, 0.3);
+  color: #A5B4FC;
+}
+
+.liquid-title-gradient {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 5.2vw, 1.65rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  background: linear-gradient(135deg, var(--text-main) 30%, #4F46E5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.feature-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.feature-pill-icon {
+  font-size: 0.78rem;
+}
+
+/* ==========================================================================
+   APP MAIN & FLUID PAGE TRANSITIONS (iOS 26 Depth & Blur)
+   ========================================================================== */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.page-content {
+  display: none;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.35s var(--spring-fluid), transform 0.4s var(--spring-bounce), filter 0.35s ease;
+}
+
+.page-content.active {
+  display: flex;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+  filter: blur(0px);
+}
+
+/* Animated sliding classes */
+.page-content.slide-out-left {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(-30px) scale(0.96);
+  filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-content.slide-out-right {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateX(30px) scale(0.96);
+  filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-content.slide-in-right {
+  display: flex;
+  animation: pageSlideInRight 0.42s var(--spring-bounce) forwards;
+}
+
+.page-content.slide-in-left {
+  display: flex;
+  animation: pageSlideInLeft 0.42s var(--spring-bounce) forwards;
+}
+
+@keyframes pageSlideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(35px) scale(0.96);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+@keyframes pageSlideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-35px) scale(0.96);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* ==========================================================================
+   COMPARE PAGE: ONE UI REACHABILITY & PINNED ACTION BAR
+   ========================================================================== */
+#compare-page {
+  min-height: calc(100vh - 165px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.oneui-viewing-area {
+  margin-bottom: 6px;
+}
+
+.compare-interaction-bottom {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-top: auto;
+  position: relative;
+}
+
+/* Scrollable Container for Product Cards */
+.compare-scroll-wrapper {
+  max-height: 52vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 2px 8px 2px;
+  overscroll-behavior: contain;
+}
+
+/* Custom Sleek Scrollbar */
+.compare-scroll-wrapper::-webkit-scrollbar {
+  width: 4px;
+}
+.compare-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(150, 150, 150, 0.25);
+  border-radius: var(--radius-pill);
+}
+
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+@media (max-width: 330px) {
+  .items-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Sticky Pinned Action Bar (Always anchored above floating tab bar) */
+.compare-action-bar-pinned, .discount-action-bar-pinned {
+  position: sticky;
+  bottom: 80px;
+  z-index: 85;
+  display: flex;
+  gap: 10px;
+  padding: 8px 12px;
+  margin-top: 8px;
+  background: var(--glass-bg-elevated);
+  backdrop-filter: blur(32px) saturate(220%) brightness(105%);
+  -webkit-backdrop-filter: blur(32px) saturate(220%) brightness(105%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--glass-shadow-bubble), var(--glass-specular);
+}
+
+/* ==========================================================================
+   PRODUCT COMPARE CARDS & ENTRANCE ANIMATION
+   ========================================================================== */
+.compare-card {
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  transition: transform 0.28s var(--spring-fluid), box-shadow 0.28s var(--spring-fluid), border-color 0.28s var(--spring-fluid);
+}
+
+.compare-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Newly spawned product card bounce pop */
+.compare-card.newly-spawned {
+  animation: liquidCardPop 0.55s var(--spring-droplet) forwards;
+}
+
+@keyframes liquidCardPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.65) translateY(30px);
+    filter: blur(10px);
+  }
+  65% {
+    transform: scale(1.04) translateY(-3px);
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0px);
+  }
+}
+
+.compare-card.cheapest-active {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1.8px solid var(--success-border);
+  box-shadow: var(--glass-shadow-cheapest);
+}
+
+.dark-theme .compare-card.cheapest-active {
+  background: rgba(16, 185, 129, 0.2);
+  border: 1.8px solid rgba(52, 211, 153, 0.7);
+}
+
+.cheapest-badge {
+  position: absolute;
+  top: -9px;
+  right: 12px;
+  background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+  color: #FFFFFF;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45);
+  letter-spacing: 0.02em;
+  animation: pulseBadge 2.2s infinite ease-in-out;
+  z-index: 2;
+}
+
+@keyframes pulseBadge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+.btn-remove-card {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s var(--spring-bounce);
+  z-index: 3;
+}
+
+.btn-remove-card:active {
+  transform: scale(0.85);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+}
+
+.card-title-field {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-main);
+  background: transparent;
+  border: none;
+  width: 82%;
+  padding: 0;
+  outline: none;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.field-label {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.input-field {
+  width: 100%;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  padding: 9px 12px;
+  font-family: var(--font-sans);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--text-main);
+  outline: none;
+  transition: all 0.2s var(--spring-snappy);
+}
+
+.input-field:focus {
+  border-color: var(--input-focus-border);
+  box-shadow: var(--input-focus-glow);
+  background: var(--glass-bg-elevated);
+}
+
+.unit-price-display {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--glass-border-subtle);
+}
+
+.unit-price-label {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.unit-price-val {
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.compare-card.cheapest-active .unit-price-val {
+  color: var(--success);
+}
+
+/* ==========================================================================
+   LIQUID ACTION BUTTONS (ELDER-FRIENDLY & HIGH-FPS SPRINGS)
+   ========================================================================== */
+.glass-action-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.22s var(--spring-bounce), box-shadow 0.22s var(--spring-snappy);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-action-btn:active {
+  transform: scale(0.94);
+}
+
+.primary-action {
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  color: #FFFFFF;
+  box-shadow: 0 8px 20px -4px rgba(79, 70, 229, 0.45), inset 0 1px 1.5px rgba(255, 255, 255, 0.4);
+}
+
+.danger-action {
+  flex: 0 0 auto;
+  min-width: 90px;
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.danger-action:hover {
+  background: rgba(239, 68, 68, 0.18);
+}
+
+/* ==========================================================================
+   LIQUID DROPLET RISING SPAWN ANIMATION (User Special Request)
+   ========================================================================== */
+.liquid-droplet-bubble {
+  position: fixed;
+  z-index: 999;
+  pointer-events: none;
+  width: 26px;
+  height: 26px;
+  background: radial-gradient(circle at 35% 30%, #FFFFFF 0%, #818CF8 55%, #4F46E5 100%);
+  border-radius: 45% 55% 65% 35% / 45% 45% 55% 55%;
+  box-shadow: 0 0 24px rgba(99, 102, 241, 0.8), inset 0 2px 4px rgba(255, 255, 255, 0.85);
+  animation: liquidDropRise 0.5s var(--spring-droplet) forwards;
+}
+
+@keyframes liquidDropRise {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(0.6) rotate(0deg);
+  }
+  50% {
+    border-radius: 35% 65% 55% 45% / 55% 35% 65% 45%;
+    transform: translate(-50%, -65px) scale(1.18) scaleY(1.35) rotate(15deg);
+  }
+  85% {
+    opacity: 0.9;
+    transform: translate(-50%, -110px) scale(1.4) scaleY(0.9) rotate(-10deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -130px) scale(2.2);
+    filter: blur(6px);
+  }
+}
+
+/* ==========================================================================
+   FLOATING GLASS ISLAND BOTTOM NAV WITH LIQUID DROPLET INDICATOR
+   ========================================================================== */
+.nav-island-wrapper {
+  position: fixed;
+  bottom: 12px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  padding: 0 14px;
+  pointer-events: none;
+}
+
+.floating-glass-nav {
+  pointer-events: auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--glass-bg-elevated);
+  backdrop-filter: blur(34px) saturate(240%) brightness(106%);
+  -webkit-backdrop-filter: blur(34px) saturate(240%) brightness(106%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-pill);
+  padding: 6px;
+  box-shadow: var(--glass-shadow-bubble), var(--glass-specular);
+  width: 100%;
+  max-width: 360px;
+}
+
+/* Morphing Liquid Drop Indicator */
+.liquid-tab-indicator {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: calc(50% - 6px);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  box-shadow: 0 6px 18px rgba(79, 70, 229, 0.45), inset 0 1.5px 2px rgba(255, 255, 255, 0.4);
+  transition: transform 0.42s var(--spring-droplet);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.nav-tab {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s var(--spring-bounce);
+}
+
+.nav-tab:active {
+  transform: scale(0.94);
+}
+
+.nav-tab.active {
+  color: #FFFFFF;
+}
+
+.tab-icon {
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   SUMMARY BANNER & DISCOUNT PAGE CARDS
+   ========================================================================== */
+.summary-card {
+  padding: 14px 16px;
+  border-radius: var(--radius-md);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid var(--success-border);
+  box-shadow: var(--glass-shadow-cheapest);
+  animation: liquidCardPop 0.45s var(--spring-bounce);
+}
+
+.summary-card.hidden {
+  display: none !important;
+}
+
+.summary-icon-wrapper {
+  font-size: 1.8rem;
+}
+
+.summary-subtitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--success);
+  letter-spacing: 0.05em;
+}
+
+.summary-title {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.summary-details {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.discount-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.summary-box {
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.summary-box.highlight-savings {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: var(--success-border);
+}
+
+.box-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.box-value {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.highlight-savings .box-value {
+  color: var(--success);
+}
+
+.percent-badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 2px 8px;
+  background: var(--success);
+  color: #fff;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.percent-badge.hidden {
+  display: none;
+}
+
+.paid-amount-card {
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+.bold-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.input-xl {
+  font-size: 1.35rem;
+  padding: 12px 14px;
+}
+
+.items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.discount-row-card {
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.discount-item-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.discount-price-output {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  min-width: 100px;
+}
+
+.discount-calculated-label {
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  font-weight: 600;
+}
+
+.discount-calculated-price {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.dark-theme .discount-calculated-price {
+  color: #818CF8;
+}
+
+.discount-saving-subtext {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--success);
+}
+"""
+
+dest = r"d:\sangtian.a\Sangtian - PS\Antigravity\Cheaper Discount App\web\style.css"
+with open(dest, "w", encoding="utf-8") as f:
+    f.write(css_content)
+print("Updated web/style.css")
+'@ | Set-Content -Path "d:\sangtian.a\Sangtian - PS\Antigravity\Cheaper Discount App\update_css.py" -Encoding utf8
+python "d:\sangtian.a\Sangtian - PS\Antigravity\Cheaper Discount App\update_css.py"
+Remove-Item "d:\sangtian.a\Sangtian - PS\Antigravity\Cheaper Discount App\update_css.py" -Force

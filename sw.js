@@ -1,6 +1,6 @@
-﻿// SmartSaver Service Worker v2.0.0 (Liquid Glass Edition)
-const CACHE_NAME = 'smartsaver-liquid-v2.0.0';
-const ASSETS = [
+// SmartSaver Service Worker v2.5.0 (iOS & PWA Offline Edition)
+const CACHE_NAME = 'smartsaver-ios-v2.5.0';
+const STATIC_ASSETS = [
   './',
   './index.html',
   './style.css',
@@ -9,14 +9,13 @@ const ASSETS = [
   './icon-192.png',
   './icon-512.png',
   './apple-touch-icon.png',
-  './favicon.png',
-  'https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap'
+  './favicon.png'
 ];
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(ASSETS.map(url => new Request(url, { cache: 'reload' })));
+      return cache.addAll(STATIC_ASSETS.map(url => new Request(url, { cache: 'reload' })));
     }).then(() => self.skipWaiting())
   );
 });
@@ -30,9 +29,19 @@ self.addEventListener('activate', event => {
 });
 
 self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
+  
   event.respondWith(
     caches.match(event.request).then(cached => {
-      return cached || fetch(event.request).catch(() => caches.match('./index.html'));
+      if (cached) return cached;
+
+      return fetch(event.request).then(response => {
+        if (response.status === 200 && (event.request.url.startsWith('https://fonts.googleapis.com') || event.request.url.startsWith('https://fonts.gstatic.com'))) {
+          const responseToCache = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(event.request, responseToCache));
+        }
+        return response;
+      }).catch(() => caches.match('./index.html'));
     })
   );
 });
