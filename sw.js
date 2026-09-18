@@ -1,14 +1,18 @@
 // SmartSaver Service Worker v2.5.0 (iOS & PWA Offline Edition)
-const CACHE_NAME = 'smartsaver-ios-v2.5.1';
+const CACHE_NAME = 'smartsaver-ios-v2.5.2';
 const STATIC_ASSETS = [
   './',
   './index.html',
   './style.css',
   './app.js',
   './manifest.json',
+  './apple-touch-icon.png',
+  './apple-touch-icon-180x180.png',
+  './apple-touch-icon-167x167.png',
+  './apple-touch-icon-152x152.png',
+  './apple-touch-icon-120x120.png',
   './icon-192.png',
   './icon-512.png',
-  './apple-touch-icon.png',
   './favicon.png'
 ];
 
