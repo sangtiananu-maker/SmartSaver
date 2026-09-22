@@ -26,8 +26,8 @@ const TRANSLATIONS = {
     "compareDesc": "Fill in the price and quantity for each item. The cheapest product will highlight automatically.",
     "addAnotherProduct": "Add Another Product",
     "clearAll": "Clear All",
-    "labelPrice": "Price",
-    "labelQuantity": "Quantity",
+    "labelPrice": "Price ($)",
+    "labelQuantity": "Quantity (pcs/g/ml)",
     "labelUnitPrice": "Unit Price",
     "labelBestValue": "Best Value!",
     "labelCheapest": "🏆 Cheapest",
@@ -76,7 +76,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "Thank you very much for your kind support! 💖",
     "modalLangTitle": "Select Language",
     "modalLangSub": "Choose your preferred language",
-    "iosA2hsHtml": "Install on iPhone: Tap <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> and select <strong>'Add to Home Screen'</strong>"
+    "iosA2hsHtml": "Install on iPhone: Tap <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> and select <strong>'Add to Home Screen'</strong>",
+    "compareUseCase": "Compare package sizes or brands (e.g. small vs large) to find the best price per unit and save money.",
+    "discountUseCase": "Split bill discounts or vouchers fairly by item prices, perfect for shared dinners or group shopping."
   },
   "th": {
     "tabCompare": "เปรียบราคา",
@@ -92,8 +94,8 @@ const TRANSLATIONS = {
     "compareDesc": "กรอกราคาและปริมาณของแต่ละสินค้า ระบบจะไฮไลต์สินค้าที่คุ้มค่าที่สุดให้อัตโนมัติ",
     "addAnotherProduct": "เพิ่มสินค้า",
     "clearAll": "ล้างข้อมูล",
-    "labelPrice": "ราคา",
-    "labelQuantity": "ปริมาณ",
+    "labelPrice": "ราคา (บาท)",
+    "labelQuantity": "ปริมาณ (ชิ้น/กรัม/มล.)",
     "labelUnitPrice": "ราคาต่อหน่วย",
     "labelBestValue": "คุ้มที่สุด!",
     "labelCheapest": "🏆 ถูกที่สุด",
@@ -142,7 +144,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "ขอบพระคุณสำหรับการสนับสนุนผู้พัฒนาอย่างยิ่งครับ! 💖",
     "modalLangTitle": "เลือกภาษา",
     "modalLangSub": "เลือกภาษาที่ต้องการใช้งาน",
-    "iosA2hsHtml": "ติดตั้งบน iPhone: แตะไอคอนแชร์ <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> แล้วเลือก <strong>'เพิ่มไปยังหน้าจอโฮม'</strong>"
+    "iosA2hsHtml": "ติดตั้งบน iPhone: แตะไอคอนแชร์ <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> แล้วเลือก <strong>'เพิ่มไปยังหน้าจอโฮม'</strong>",
+    "compareUseCase": "เปรียบเทียบขนาดหรือแพ็กเกจสินค้า เช่น เล็ก vs ใหญ่ เพื่อค้นหาราคาต่อหน่วยที่คุ้มค่าและประหยัดเงินจริง",
+    "discountUseCase": "ปันส่วนลดตามสัดส่วนราคาสินค้าจริง เช่น หารค่าอาหารรวมส่วนลดหรือช้อปปิ้งรวมบิลกับเพื่อนอย่างเป็นธรรม"
   },
   "lo": {
     "tabCompare": "ສົມທຽບລາຄາ",
@@ -158,8 +162,8 @@ const TRANSLATIONS = {
     "compareDesc": "ປ້ອນລາຄາແລະປະລິມານຂອງແຕ່ລະສິນຄ້າ. ລະບົບຈະໄຮໄລ້ສິນຄ້າທີ່ຖືກທີ່ສຸດໂດຍອັດຕະໂນມັດ.",
     "addAnotherProduct": "ເພີ່ມສິນຄ້າ",
     "clearAll": "ລຶບທັງໝົດ",
-    "labelPrice": "ລາຄາ",
-    "labelQuantity": "ປະລິມານ",
+    "labelPrice": "ລາຄາ (ກີບ)",
+    "labelQuantity": "ປະລິມານ (ອັນ/ກຣາມ/ມລ)",
     "labelUnitPrice": "ລາຄາຕໍ່ໜ່ວຍ",
     "labelBestValue": "ຄຸ້ມຄ່າທີ່ສຸດ!",
     "labelCheapest": "🏆 ຖືກທີ່ສຸດ",
@@ -208,7 +212,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "ຂອບໃຈຫຼາຍໆສຳລັບການສະໜັບສະໜູນ! 💖",
     "modalLangTitle": "ເລືອກພາສາ",
     "modalLangSub": "ເລືອກພາສາທີ່ຕ້ອງການນຳໃຊ້",
-    "iosA2hsHtml": "ຕິດຕັ້ງເທິງ iPhone: ແຕະໄອຄອນແບ່ງປັນ <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> ແລ້ວເລືອກ <strong>'ເພີ່ມໃສ່ໜ້າຈໍໂຮມ'</strong>"
+    "iosA2hsHtml": "ຕິດຕັ້ງເທິງ iPhone: ແຕະໄອຄອນແບ່ງປັນ <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> ແລ້ວເລືອກ <strong>'ເພີ່ມໃສ່ໜ້າຈໍໂຮມ'</strong>",
+    "compareUseCase": "ສົມທຽບຂະໝາດຫຼືແພັກເກັດສິນຄ້າ ເຊື່ນ ນ້ອຊj ໃຫຍ່ ເພື່ອຊອກຫາລາຄາຕ່ອຫນ່ວຍທີ່ປະຍັດເງິນແທ້",
+    "discountUseCase": "ແບ່ງປັນສ່ວນຫຼຸດຕາມສັດສ່ວນລາຄາຕົວຈິງ ເຊື່ນ ຫານຄ່າອາຫາຩຫຼືຊື້ເຄື່ອງຮ່ວມກັນຢ່າງຍຸຕິທໍາ"
   },
   "zh": {
     "tabCompare": "比价工具",
@@ -224,8 +230,8 @@ const TRANSLATIONS = {
     "compareDesc": "输入每件商品的价格和数量，系统将自动标记性价比最高的商品。",
     "addAnotherProduct": "添加商品",
     "clearAll": "全部清空",
-    "labelPrice": "价格",
-    "labelQuantity": "数量",
+    "labelPrice": "价格 (元)",
+    "labelQuantity": "数量 (件/克/毫升)",
     "labelUnitPrice": "单价",
     "labelBestValue": "最划算!",
     "labelCheapest": "🏆 最便宜",
@@ -274,7 +280,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "非常感谢您对开发者的大力支持！💖",
     "modalLangTitle": "选择语言",
     "modalLangSub": "请选择您常用的语言",
-    "iosA2hsHtml": "添加到 iPhone 主屏幕：点击分享图标 <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> 并选择 <strong>“添加到主屏幕”</strong>"
+    "iosA2hsHtml": "添加到 iPhone 主屏幕：点击分享图标 <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> 并选择 <strong>“添加到主屏幕”</strong>",
+    "compareUseCase": "对比不同规格或包装（如大包vs小包），快速计算每单位真实单价，聪明省钱。",
+    "discountUseCase": "按商品实际价格公平成比例分摄整单折扣，聚餐AA制或拼单购物分账更省心。"
   },
   "ja": {
     "tabCompare": "価格比較",
@@ -290,8 +298,8 @@ const TRANSLATIONS = {
     "compareDesc": "各商品の価格と数量を入力してください。最もお得な商品が自動でハイライトされます。",
     "addAnotherProduct": "商品を追加",
     "clearAll": "すべてクリア",
-    "labelPrice": "価格",
-    "labelQuantity": "数量",
+    "labelPrice": "価格 (円)",
+    "labelQuantity": "数量 (個/g/ml)",
     "labelUnitPrice": "単価",
     "labelBestValue": "1番お得!",
     "labelCheapest": "🏆 最安値",
@@ -340,7 +348,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "心温まるご支援を本当にありがとうございます！💖",
     "modalLangTitle": "言語を選択",
     "modalLangSub": "お好みの言語をお選びください",
-    "iosA2hsHtml": "iPhoneのホーム画面に追加：共有アイコン <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> をタップし、<strong>「ホーム画面に追加」</strong> を選択"
+    "iosA2hsHtml": "iPhoneのホーム画面に追加：共有アイコン <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> をタップし、<strong>「ホーム画面に追加」</strong> を選択",
+    "compareUseCase": "大袋と小袋などパッケージサイズを比較し、最も単価がお得な商品を瞬時に見つけて節約。",
+    "discountUseCase": "会計全体の割引を商品価格の比率に応じて公平に按分。割り勘や共同購入の計算に最適。"
   },
   "ko": {
     "tabCompare": "가격 비교",
@@ -356,8 +366,8 @@ const TRANSLATIONS = {
     "compareDesc": "각 상품의 가격과 수량을 입력하세요. 가장 가성비 좋은 상품이 자동으로 강조됩니다.",
     "addAnotherProduct": "상품 추가",
     "clearAll": "전체 삭제",
-    "labelPrice": "가격",
-    "labelQuantity": "수량",
+    "labelPrice": "가격 (원)",
+    "labelQuantity": "수량 (개/g/ml)",
     "labelUnitPrice": "단가",
     "labelBestValue": "최고 가성비!",
     "labelCheapest": "🏆 최저가",
@@ -406,7 +416,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "개발자를 응원해 주셔서 진심으로 감사드립니다! 💖",
     "modalLangTitle": "언어 선택",
     "modalLangSub": "사용할 언어를 선택하세요",
-    "iosA2hsHtml": "iPhone 홈 화면에 추가: 공유 아이콘 <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> 탭 후 <strong>'홈 화면에 추가'</strong> 선택"
+    "iosA2hsHtml": "iPhone 홈 화면에 추가: 공유 아이콘 <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> 탭 후 <strong>'홈 화면에 추가'</strong> 선택",
+    "compareUseCase": "소용량 vs 대용량 등 포장 규격별 단가를 비교하여 가장 알뜰한 상품을 쉽게 찾아보세요.",
+    "discountUseCase": "총 할인 금액을 각 상품 가격 비율에 맞춰 공정하게 분배하여 더치페이와 공동구매를 지원합니다."
   },
   "es": {
     "tabCompare": "Comparar",
@@ -422,8 +434,8 @@ const TRANSLATIONS = {
     "compareDesc": "Ingresa el precio y la cantidad de cada artículo. El más conveniente se resaltará automáticamente.",
     "addAnotherProduct": "Agregar Producto",
     "clearAll": "Limpiar Todo",
-    "labelPrice": "Precio",
-    "labelQuantity": "Cantidad",
+    "labelPrice": "Precio (€/$)",
+    "labelQuantity": "Cantidad (ud/g/ml)",
     "labelUnitPrice": "Precio Unitario",
     "labelBestValue": "¡Mejor Valor!",
     "labelCheapest": "🏆 Más Barato",
@@ -472,7 +484,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "¡Muchísimas gracias por tu generoso apoyo! 💖",
     "modalLangTitle": "Seleccionar Idioma",
     "modalLangSub": "Elige tu idioma preferido",
-    "iosA2hsHtml": "Instalar en iPhone: Pulsa <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> y elige <strong>'Añadir a pantalla de inicio'</strong>"
+    "iosA2hsHtml": "Instalar en iPhone: Pulsa <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> y elige <strong>'Añadir a pantalla de inicio'</strong>",
+    "compareUseCase": "Compara tamaños de envases (pequeño vs grande) para descubrir el precio por unidad más económico.",
+    "discountUseCase": "Distribuye descuentos globales de forma proporcional y justa, ideal para cenas o compras compartidas."
   },
   "fr": {
     "tabCompare": "Comparer",
@@ -488,8 +502,8 @@ const TRANSLATIONS = {
     "compareDesc": "Saisissez le prix et la quantité de chaque article. Le produit le plus avantageux sera mis en avant.",
     "addAnotherProduct": "Ajouter un Produit",
     "clearAll": "Tout Effacer",
-    "labelPrice": "Prix",
-    "labelQuantity": "Quantité",
+    "labelPrice": "Prix (€)",
+    "labelQuantity": "Quantité (pce/g/ml)",
     "labelUnitPrice": "Prix Unitaire",
     "labelBestValue": "Meilleure Affaire!",
     "labelCheapest": "🏆 Le Moins Cher",
@@ -538,7 +552,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "Un immense merci pour votre chaleureux soutien ! 💖",
     "modalLangTitle": "Choisir la Langue",
     "modalLangSub": "Sélectionnez votre langue préférée",
-    "iosA2hsHtml": "Installer sur iPhone : Appuyez sur <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> puis <strong>'Sur l\'écran d\'accueil'</strong>"
+    "iosA2hsHtml": "Installer sur iPhone : Appuyez sur <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> puis <strong>'Sur l\'écran d\'accueil'</strong>",
+    "compareUseCase": "Comparez les formats de produits (petit vs grand) pour trouver le meilleur prix au kilo/litre et économiser.",
+    "discountUseCase": "Répartissez équitablement une remise globale au prorata du prix de chaque article pour vos sorties partagées."
   },
   "de": {
     "tabCompare": "Preisvergleich",
@@ -554,8 +570,8 @@ const TRANSLATIONS = {
     "compareDesc": "Geben Sie Preis und Menge jedes Artikels ein. Das günstigste Produkt wird automatisch hervorgehoben.",
     "addAnotherProduct": "Produkt hinzufügen",
     "clearAll": "Alles zurücksetzen",
-    "labelPrice": "Preis",
-    "labelQuantity": "Menge",
+    "labelPrice": "Preis (€)",
+    "labelQuantity": "Menge (Stk/g/ml)",
     "labelUnitPrice": "Grundpreis",
     "labelBestValue": "Bester Wert!",
     "labelCheapest": "🏆 Günstigster",
@@ -604,7 +620,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "Herzlichen Dank für Ihre freundliche Unterstützung! 💖",
     "modalLangTitle": "Sprache auswählen",
     "modalLangSub": "Wählen Sie Ihre bevorzugte Sprache",
-    "iosA2hsHtml": "Auf iPhone installieren: Tippe auf <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> und wähle <strong>'Zum Home-Bildschirm'</strong>"
+    "iosA2hsHtml": "Auf iPhone installieren: Tippe auf <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> und wähle <strong>'Zum Home-Bildschirm'</strong>",
+    "compareUseCase": "Vergleichen Sie Packungsgrößen (z. B. klein vs. groß), um den günstigsten Grundpreis zu ermitteln.",
+    "discountUseCase": "Teilen Sie Gesamtrabatte fair und anteilig auf einzelne Artikel auf – perfekt für Gruppenrechnungen."
   },
   "pt": {
     "tabCompare": "Comparar",
@@ -620,8 +638,8 @@ const TRANSLATIONS = {
     "compareDesc": "Informe o preço e a quantidade de cada item. O produto mais vantajoso será destacado automaticamente.",
     "addAnotherProduct": "Adicionar Produto",
     "clearAll": "Limpar Tudo",
-    "labelPrice": "Preço",
-    "labelQuantity": "Quantidade",
+    "labelPrice": "Preço (R$/€)",
+    "labelQuantity": "Quantidade (un/g/ml)",
     "labelUnitPrice": "Preço Unitário",
     "labelBestValue": "Melhor Custo!",
     "labelCheapest": "🏆 Mais Barato",
@@ -670,7 +688,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "Muito obrigado pelo seu generoso apoio! 💖",
     "modalLangTitle": "Selecionar Idioma",
     "modalLangSub": "Escolha o seu idioma de preferência",
-    "iosA2hsHtml": "Instalar no iPhone: Toque em <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> e escolha <strong>'Adicionar à Tela de Início'</strong>"
+    "iosA2hsHtml": "Instalar no iPhone: Toque em <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> e escolha <strong>'Adicionar à Tela de Início'</strong>",
+    "compareUseCase": "Compare tamanhos de embalagens (pequena vs grande) para achar o menor preço unitário e economizar.",
+    "discountUseCase": "Divida descontos totais de forma proporcional e justa entre os itens, ideal para dividir contas com amigos."
   },
   "id": {
     "tabCompare": "Bandingkan",
@@ -686,8 +706,8 @@ const TRANSLATIONS = {
     "compareDesc": "Isi harga dan jumlah tiap barang. Produk paling hemat akan ditandai secara otomatis.",
     "addAnotherProduct": "Tambah Produk",
     "clearAll": "Hapus Semua",
-    "labelPrice": "Harga",
-    "labelQuantity": "Jumlah",
+    "labelPrice": "Harga (Rp)",
+    "labelQuantity": "Jumlah (pcs/g/ml)",
     "labelUnitPrice": "Harga per Satuan",
     "labelBestValue": "Paling Hemat!",
     "labelCheapest": "🏆 Paling Murah",
@@ -736,7 +756,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "Terima kasih banyak atas dukungan luar biasa Anda! 💖",
     "modalLangTitle": "Pilih Bahasa",
     "modalLangSub": "Pilih bahasa yang Anda inginkan",
-    "iosA2hsHtml": "Pasang di iPhone: Ketuk <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> dan pilih <strong>'Tambah ke Layar Utama'</strong>"
+    "iosA2hsHtml": "Pasang di iPhone: Ketuk <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> dan pilih <strong>'Tambah ke Layar Utama'</strong>",
+    "compareUseCase": "Bandingkan ukuran kemasan (misal kecil vs besar) untuk menemukan harga per unit termurah saat belanja.",
+    "discountUseCase": "Bagi diskon total secara proporsional dan adil per barang, cocok untuk patungan makan atau belanja bersama."
   },
   "hi": {
     "tabCompare": "मूल्य तुलना",
@@ -752,8 +774,8 @@ const TRANSLATIONS = {
     "compareDesc": "प्रत्येक वस्तु की कीमत और मात्रा दर्ज करें। सबसे किफायती वस्तु अपने आप हाइलाइट हो जाएगी।",
     "addAnotherProduct": "उत्पाद जोड़ें",
     "clearAll": "सब साफ करें",
-    "labelPrice": "कीमत",
-    "labelQuantity": "मात्रा",
+    "labelPrice": "मूल्य (₹)",
+    "labelQuantity": "मात्रा (नग/ग्राम/मिली)",
     "labelUnitPrice": "प्रति इकाई मूल्य",
     "labelBestValue": "सबसे किफायती!",
     "labelCheapest": "🏆 सबसे सस्ता",
@@ -802,7 +824,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "आपके बहुमूल्य समर्थन के लिए बहुत-बहुत धन्यवाद! 💖",
     "modalLangTitle": "भाषा चुनें",
     "modalLangSub": "अपनी पसंदीदा भाषा चुनें",
-    "iosA2hsHtml": "iPhone पर जोड़ें: <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> टैप करें और <strong>'होम स्क्रीन पर जोड़ें'</strong> चुनें"
+    "iosA2hsHtml": "iPhone पर जोड़ें: <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> टैप करें और <strong>'होम स्क्रीन पर जोड़ें'</strong> चुनें",
+    "compareUseCase": "पैकेट के आकारों की तुलना करें ताकि प्रति यूनिट सबसे किफायती दाम पता चल सके।",
+    "discountUseCase": "कुल छूट को प्रत्येक वस्तु की कीमत के अनुसार निष्पक्ष रूप से बांटें।"
   },
   "ar": {
     "tabCompare": "مقارنة الأسعار",
@@ -818,8 +842,8 @@ const TRANSLATIONS = {
     "compareDesc": "أدخل سعر وكمية كل منتج. سيتم تمييز الخيار الأوفر والأكثر توفيراً تلقائياً.",
     "addAnotherProduct": "إضافة منتج",
     "clearAll": "مسح الكل",
-    "labelPrice": "السعر",
-    "labelQuantity": "الكمية",
+    "labelPrice": "السعر (ر.س/د.إ/ج.م)",
+    "labelQuantity": "الكمية (قطعة/جرام/مل)",
     "labelUnitPrice": "سعر الوحدة",
     "labelBestValue": "الأفضل قيمة!",
     "labelCheapest": "🏆 الأرخص",
@@ -868,7 +892,9 @@ const TRANSLATIONS = {
     "toastPurchaseSuccess": "شكراً جزيلاً على دعمكم الكريم! 💖",
     "modalLangTitle": "اختر اللغة",
     "modalLangSub": "اختر لغتك المفضلة",
-    "iosA2hsHtml": "التثبيت على iPhone: اضغط على <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> واختر <strong>'إضافة إلى الصفحة الرئيسية'</strong>"
+    "iosA2hsHtml": "التثبيت على iPhone: اضغط على <svg class=\"ios-share-svg\" viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8\"/><polyline points=\"16 6 12 2 8 6\"/><line x1=\"12\" y1=\"2\" x2=\"12\" y2=\"15\"/></svg> واختر <strong>'إضافة إلى الصفحة الرئيسية'</strong>",
+    "compareUseCase": "قارن بين أحجام العبوات (مثل صغيرة مقابل كبيرة) لمعرفة أفضل سعر للوحدة والتوفير الحقيقي أثناء التسوق.",
+    "discountUseCase": "وزّع الخصم الإجمالي على المنتجات بنسب عادلة، مثالي لحساب الفواتير المشتركة بين الأصدقاء."
   }
 };
 
@@ -1223,6 +1249,12 @@ function applyLang() {
   const featDiscSummary = document.getElementById('feat-discount-summary');
   if (featDiscSummary) featDiscSummary.textContent = t('featDiscountSummary');
 
+  // Update One UI Header Use-Case Descriptions
+  const compDescEl = document.getElementById('compare-usecase-desc');
+  if (compDescEl) compDescEl.textContent = t('compareUseCase') || '';
+  const discDescEl = document.getElementById('discount-usecase-desc');
+  if (discDescEl) discDescEl.textContent = t('discountUseCase') || '';
+
   // Compare Page Static Texts
   document.getElementById('compare-h2').textContent = t('compareH2');
   document.getElementById('add-compare-item-btn').querySelector('span').textContent = t('addAnotherProduct');
@@ -1258,21 +1290,35 @@ tabDiscount.addEventListener('click', () => switchTab('discount'));
 
 function updateLiquidTabIndicator(targetTab, animate = true) {
   if (!liquidTabIndicator || !targetTab) return;
+  const isRtl = document.documentElement.dir === 'rtl';
   const navContainer = targetTab.parentElement;
   const navRect = navContainer.getBoundingClientRect();
   const tabRect = targetTab.getBoundingClientRect();
-  const leftOffset = tabRect.left - navRect.left;
   const width = tabRect.width;
 
   liquidTabIndicator.style.width = `${width}px`;
 
-  if (animate) {
-    liquidTabIndicator.style.transform = `translateX(${leftOffset}px) scaleX(1.18) scaleY(0.88)`;
-    setTimeout(() => {
-      liquidTabIndicator.style.transform = `translateX(${leftOffset}px) scale(1)`;
-    }, 180);
+  if (isRtl) {
+    const rightOffset = navRect.right - tabRect.right;
+    const targetX = -rightOffset;
+    if (animate) {
+      liquidTabIndicator.style.transform = `translateX(${targetX}px) scaleX(1.18) scaleY(0.88)`;
+      setTimeout(() => {
+        liquidTabIndicator.style.transform = `translateX(${targetX}px) scale(1)`;
+      }, 180);
+    } else {
+      liquidTabIndicator.style.transform = `translateX(${targetX}px) scale(1)`;
+    }
   } else {
-    liquidTabIndicator.style.transform = `translateX(${leftOffset}px) scale(1)`;
+    const leftOffset = tabRect.left - navRect.left;
+    if (animate) {
+      liquidTabIndicator.style.transform = `translateX(${leftOffset}px) scaleX(1.18) scaleY(0.88)`;
+      setTimeout(() => {
+        liquidTabIndicator.style.transform = `translateX(${leftOffset}px) scale(1)`;
+      }, 180);
+    } else {
+      liquidTabIndicator.style.transform = `translateX(${leftOffset}px) scale(1)`;
+    }
   }
 }
 
@@ -1387,12 +1433,12 @@ function renderCompareList(newlyAddedId = null) {
 
       <div class="input-group">
         <label class="field-label">${t('labelPrice')}</label>
-        <input type="number" class="input-field price-input" placeholder="0.00" value="${item.price}" min="0" step="any" inputmode="decimal" data-id="${item.id}" data-field="price">
+        <input type="text" class="input-field price-input" placeholder="0.00" value="${item.price}" inputmode="decimal" data-id="${item.id}" data-field="price">
       </div>
 
       <div class="input-group">
         <label class="field-label">${t('labelQuantity')}</label>
-        <input type="number" class="input-field qty-input" placeholder="1" value="${item.quantity || '1'}" min="0.001" step="any" inputmode="decimal" data-id="${item.id}" data-field="quantity">
+        <input type="text" class="input-field qty-input" placeholder="1" value="${item.quantity || '1'}" inputmode="decimal" data-id="${item.id}" data-field="quantity">
       </div>
 
       <div class="unit-price-display">
@@ -1425,6 +1471,36 @@ function renderCompareList(newlyAddedId = null) {
       input.select();
     });
 
+    // Auto commit calculated math result on blur, change, or Enter key
+    if (input.classList.contains('price-input') || input.classList.contains('qty-input')) {
+      const commitMathResult = () => {
+        const val = input.value;
+        const evaluated = evaluateMathExpression(val);
+        if (!isNaN(evaluated) && evaluated > 0) {
+          const cleanVal = Number.isInteger(evaluated) ? evaluated.toString() : parseFloat(evaluated.toFixed(4)).toString();
+          if (input.value !== cleanVal) {
+            input.value = cleanVal;
+            const id = input.getAttribute('data-id');
+            const field = input.getAttribute('data-field');
+            const item = state.compareItems.find(x => x.id === id);
+            if (item) {
+              item[field] = cleanVal;
+              calculateCompare();
+            }
+          }
+        }
+      };
+
+      input.addEventListener('blur', commitMathResult);
+      input.addEventListener('change', commitMathResult);
+      input.addEventListener('keydown', (ev) => {
+        if (ev.key === 'Enter') {
+          commitMathResult();
+          input.blur();
+        }
+      });
+    }
+
     input.addEventListener('input', (e) => {
       const id = input.getAttribute('data-id');
       const field = input.getAttribute('data-field');
@@ -1446,12 +1522,50 @@ function renderCompareList(newlyAddedId = null) {
   });
 }
 
+
+// ===== SAFE MATH EXPRESSION EVALUATOR =====
+function evaluateMathExpression(str) {
+  if (typeof str === 'number') return isFinite(str) ? str : NaN;
+  if (!str || typeof str !== 'string') return NaN;
+  let s = str.trim();
+  if (!s) return NaN;
+
+  // Replace common multiplication and division symbols (unicode \u00D7 and \u00F7)
+  s = s.replace(/[\u00D7xX]/g, '*').replace(/[\u00F7]/g, '/');
+
+  // Security sanitize: allow only digits, decimal dots, operators +, -, *, /, (, ), and spaces
+  if (!/^[\d\.\s\+\-\*/\(\)]+$/.test(s)) {
+    return NaN;
+  }
+
+  // If simple single number without operators, parse directly
+  if (!/[\+\-\*/]/.test(s)) {
+    const val = parseFloat(s);
+    return isNaN(val) ? NaN : val;
+  }
+
+  // Prevent consecutive operators like ** or //
+  if (/\*{2,}|\/{2,}|\+{2,}|\-{2,}/.test(s)) {
+    return NaN;
+  }
+
+  try {
+    const res = new Function(`'use strict'; return (${s})`)();
+    if (typeof res === 'number' && isFinite(res) && !isNaN(res)) {
+      return res;
+    }
+  } catch (err) {
+    return NaN;
+  }
+  return NaN;
+}
+
 function calculateCompare() {
   let validItems = [];
 
   state.compareItems.forEach(item => {
-    const price = parseFloat(item.price);
-    const qty   = parseFloat(item.quantity);
+    const price = evaluateMathExpression(item.price);
+    const qty   = evaluateMathExpression(item.quantity);
     const unitPriceEl = document.getElementById(`comp_unit_${item.id}`);
     const cardEl = document.getElementById(`comp_card_${item.id}`);
 
@@ -1498,6 +1612,27 @@ function calculateCompare() {
       badge.className = 'cheapest-badge';
       badge.innerText = t('labelCheapest');
       cardEl.appendChild(badge);
+    }
+  });
+
+  // Calculate & display pastel red difference % for losing items
+  validItems.forEach(item => {
+    const isCheapest = cheapestItems.some(x => x.id === item.id);
+    const unitPriceEl = document.getElementById(`comp_unit_${item.id}`);
+    if (!unitPriceEl) return;
+
+    const oldDiff = unitPriceEl.querySelector('.unit-price-diff');
+    if (oldDiff) oldDiff.remove();
+
+    if (!isCheapest && minUnitPrice > 0 && item.unitPrice > minUnitPrice) {
+      const pctMore = ((item.unitPrice - minUnitPrice) / minUnitPrice) * 100;
+      if (pctMore >= 0.05) {
+        const diffSpan = document.createElement('span');
+        diffSpan.className = 'unit-price-diff';
+        diffSpan.innerText = `(+${pctMore.toFixed(1)}%)`;
+        diffSpan.title = `+${pctMore.toFixed(1)}%`;
+        unitPriceEl.appendChild(diffSpan);
+      }
     }
   });
 

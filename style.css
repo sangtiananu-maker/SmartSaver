@@ -411,7 +411,10 @@ body {
   letter-spacing: -0.02em;
   line-height: 1.25;
   text-align: center;
-  white-space: nowrap;
+  white-space: normal;
+  max-width: 92%;
+  margin: 0 auto;
+  word-break: break-word;
   background: linear-gradient(135deg, var(--text-main) 30%, #4F46E5 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -476,7 +479,18 @@ body {
   text-align: left !important;
   line-height: 1.2 !important;
   padding-left: 2px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  max-width: 100% !important;
   transform: none !important;
+}
+
+[dir="rtl"] .oneui-header-container.is-scrolled .liquid-title-gradient,
+[dir="rtl"] .oneui-header-container.oneui-collapsed .liquid-title-gradient {
+  text-align: right !important;
+  padding-left: 0 !important;
+  padding-right: 2px !important;
 }
 
 .oneui-header-container.is-scrolled .feature-pills-row,
@@ -1606,4 +1620,62 @@ body {
     opacity: 1;
     transform: translateX(-50%) translateY(0) scale(1);
   }
+}
+
+
+/* Use-Case Description in One UI Header */
+.header-usecase-desc {
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 440px;
+  margin: 6px auto 2px;
+  opacity: 0.95;
+  transition: opacity 0.25s ease, max-height 0.25s ease, margin 0.25s ease;
+}
+
+.oneui-header-container.is-scrolled .header-usecase-desc,
+.oneui-header-container.oneui-collapsed .header-usecase-desc {
+  opacity: 0 !important;
+  max-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  pointer-events: none !important;
+  display: none !important;
+}
+
+/* Pastel Red Difference Tag for losing items */
+.unit-price-diff {
+  font-size: 0.80rem;
+  font-weight: 600;
+  color: #E57373; /* soft pastel red */
+  margin-left: 6px;
+  letter-spacing: -0.01em;
+  opacity: 0.92;
+  display: inline-block;
+}
+
+.dark-theme .unit-price-diff {
+  color: #F87171;
+}
+
+[dir="rtl"] .unit-price-diff {
+  margin-left: 0;
+  margin-right: 6px;
+}
+
+/* Arabic RTL Liquid Tab Indicator Fix */
+[dir="rtl"] .liquid-tab-indicator {
+  left: auto !important;
+  right: 5px !important;
+}
+
+[dir="rtl"] .floating-glass-nav[data-active="compare"] .liquid-tab-indicator {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+[dir="rtl"] .floating-glass-nav[data-active="discount"] .liquid-tab-indicator {
+  transform: translate3d(-100%, 0, 0) !important;
 }
