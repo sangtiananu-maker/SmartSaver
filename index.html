@@ -39,7 +39,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css?v=2.6.0" />
 </head>
 <body class="light-theme">
 
@@ -384,16 +384,56 @@
   <!-- Toast Notification -->
   <div id="toast-notification" class="toast-bubble hidden"></div>
 
-  <script src="app.js"></script>
-  <!-- PWA Offline Service Worker Registration -->
+  <script src="app.js?v=2.6.0"></script>
+  <!-- PWA Offline Service Worker Registration & Intelligent Auto-Updater -->
   <script>
-    if ('serviceWorker' in navigator) {
+    if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.protocol === 'http:' || location.hostname === 'localhost')) {
+      let refreshing = false;
+
+      // Reload page once when a new service worker takes over
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!refreshing) {
+          refreshing = true;
+          window.location.reload();
+        }
+      });
+
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
-          .then(reg => console.log('SmartSaver PWA Ready:', reg.scope))
+        navigator.serviceWorker.register('./sw.js', { updateViaCache: 'none' })
+          .then(reg => {
+            console.log('SmartSaver PWA Ready:', reg.scope);
+
+            // Immediate update check on open
+            reg.update().catch(() => {});
+
+            if (reg.waiting) {
+              reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+            }
+
+            reg.addEventListener('updatefound', () => {
+              const newWorker = reg.installing;
+              if (newWorker) {
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                  }
+                });
+              }
+            });
+
+            // Auto-check whenever user returns to the app from Home Screen
+            const checkForUpdate = () => {
+              if (document.visibilityState === 'visible') {
+                reg.update().catch(() => {});
+              }
+            };
+            document.addEventListener('visibilitychange', checkForUpdate);
+            window.addEventListener('pageshow', checkForUpdate);
+            window.addEventListener('focus', checkForUpdate);
+          })
           .catch(err => console.warn('PWA Registration Error:', err));
       });
     }
   </script>
-</body>
+  </body>
 </html>
