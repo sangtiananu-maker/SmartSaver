@@ -564,6 +564,10 @@ body {
   padding-top: calc(max(28px, calc(env(safe-area-inset-top, 24px) + 12px)) + 66px);
   transform: translateZ(0);
   will-change: scroll-position;
+  scrollbar-width: none;
+}
+.app-main::-webkit-scrollbar {
+  display: none;
 }
 
 .page-content {
@@ -1171,6 +1175,7 @@ body {
   max-width: 440px;
   max-height: 90vh;
   overflow-y: auto;
+  scrollbar-width: none;
   border-radius: 28px;
   padding: 20px 18px max(22px, calc(env(safe-area-inset-bottom, 0px) + 20px)) 18px;
   box-sizing: border-box;
@@ -1183,6 +1188,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+.modal-sheet::-webkit-scrollbar {
+  display: none;
 }
 
 .dark-theme .modal-sheet {
