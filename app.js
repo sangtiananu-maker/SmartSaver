@@ -1111,7 +1111,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('resize', () => {
-    const activeTabBtn = state.activeTab === 'compare' ? tabCompare : tabDiscount;
+    const activeTabBtn = state.activeTab === 'compare' ? tabCompare : (state.activeTab === 'split' ? tabSplit : tabDiscount);
     updateLiquidTabIndicator(activeTabBtn, false);
   });
 });
