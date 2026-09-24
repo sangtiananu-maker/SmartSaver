@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="th" class="light-theme">
 <head>
   <meta charset="UTF-8" />
@@ -7,6 +7,8 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-touch-fullscreen" content="yes" />
+  <meta name="apple-mobile-web-app-orientations" content="portrait" />
   <meta name="apple-mobile-web-app-title" content="SmartSaver" />
   <meta name="format-detection" content="telephone=no" />
   <meta name="description" content="SmartSaver - Best Value Comparison and Pro-Rata Discount Splitter with iOS 26 Liquid Glass UI." />
@@ -39,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="style.css?v=2.6.0" />
+  <link rel="stylesheet" href="style.css?v=2.7.0" />
 </head>
 <body class="light-theme">
 
@@ -54,7 +56,7 @@
         <div class="header-content">
           <div class="header-brand">
             <div class="logo-wrapper">
-              <img src="apple-touch-icon.png" alt="SmartSaver Logo" class="app-logo" />
+              <img src="logo.png" alt="SmartSaver Logo" class="app-logo" />
             </div>
             <div class="title-text-group">
               <h1 class="app-title">Smart<span class="accent-gradient">Saver</span></h1>
@@ -200,6 +202,227 @@
 
       </section>
 
+      <!-- ================= PAGE 3: SMART BILL SPLITTER ================= -->
+      <section id="split-page" class="page-content">
+        
+        <!-- Dedicated One UI resting top spacer -->
+        <div id="split-top-spacer" class="oneui-resting-spacer"></div>
+
+        <!-- Section Header for Splitter Mode -->
+        <div class="section-header section-header-liquid oneui-header-container" id="split-oneui-header">
+          <h2 id="split-h2" class="liquid-title-gradient">หารค่าอาหารและเดลิเวอรี</h2>
+          <p id="split-usecase-desc" class="header-usecase-desc">หารบิลร้านอาหารหรือเดลิเวอรี แยกรายคน ละเอียดแม่นยำ พร้อมส่งสรุปเข้า LINE</p>
+          <div class="feature-pills-row">
+            <div class="feature-pill">
+              <span class="feature-pill-icon">⚡</span>
+              <span id="feat-split-fast">หารเร็วแตะง่าย</span>
+            </div>
+            <div class="feature-pill">
+              <span class="feature-pill-icon">🧾</span>
+              <span id="feat-split-taxes">ภาษี & ค่าส่งครบ</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dedicated One UI resting bottom spacer -->
+        <div id="split-bottom-spacer" class="oneui-resting-spacer"></div>
+
+        <!-- Grand Total Glass Display Card -->
+        <div class="split-grand-card glass-card">
+          <div class="split-grand-header">
+            <span class="split-grand-label" id="split-grand-label">ยอดรวมสุทธิทั้งบิล</span>
+            <span id="split-penny-badge" class="split-penny-badge">✓ เศษสตางค์ลงตัวพอดี</span>
+          </div>
+          <div class="split-grand-value-row">
+            <span class="currency-symbol">฿</span>
+            <span id="split-grand-total" class="split-grand-amount">0.00</span>
+          </div>
+          <!-- Subtotal & Add-ons Live Summary Badges -->
+          <div class="split-addons-summary">
+            <div class="addon-badge">
+              <span class="addon-label" id="split-subtotal-label">ค่าอาหาร:</span>
+              <span id="split-subtotal-val" class="addon-val">฿0.00</span>
+            </div>
+            <div class="addon-badge" id="badge-discount-wrapper" style="display:none;">
+              <span class="addon-label" id="split-discount-label">ส่วนลด:</span>
+              <span id="split-discount-val" class="addon-val text-success">-฿0.00</span>
+            </div>
+            <div class="addon-badge" id="badge-sc-wrapper" style="display:none;">
+              <span class="addon-label" id="split-sc-label">SC:</span>
+              <span id="split-sc-val" class="addon-val">+฿0.00</span>
+            </div>
+            <div class="addon-badge" id="badge-vat-wrapper" style="display:none;">
+              <span class="addon-label" id="split-vat-label">VAT:</span>
+              <span id="split-vat-val" class="addon-val">+฿0.00</span>
+            </div>
+            <div class="addon-badge" id="badge-delivery-wrapper" style="display:none;">
+              <span class="addon-label" id="split-delivery-label">ค่าส่ง:</span>
+              <span id="split-delivery-val" class="addon-val">+฿0.00</span>
+            </div>
+          </div>
+
+          <!-- Collapsible Bill Extra Settings (Discounts, SC, VAT, Delivery) -->
+          <div class="split-settings-section">
+            <button id="toggle-split-settings-btn" class="split-settings-toggle-btn" type="button">
+              <span id="split-settings-toggle-text">⚙️ ปรับส่วนลด / ภาษี / ค่าส่ง</span>
+              <span id="split-settings-arrow" class="toggle-arrow">▼</span>
+            </button>
+            <div id="split-settings-body" class="split-settings-body hidden">
+              <!-- Discount setting -->
+              <div class="split-setting-row">
+                <span class="setting-label" id="split-setting-discount-label">🏷️ ส่วนลดบิล</span>
+                <div class="setting-control-group">
+                  <input type="text" id="split-discount-input" class="input-field glass-input setting-input" placeholder="0" inputmode="decimal">
+                  <div class="pill-toggle-group">
+                    <button type="button" id="btn-discount-flat" class="pill-toggle-btn active"><span id="btn-discount-flat-text">บาท (฿)</span></button>
+                    <button type="button" id="btn-discount-pct" class="pill-toggle-btn">%</button>
+                  </div>
+                </div>
+              </div>
+              <!-- Service Charge setting -->
+              <div class="split-setting-row">
+                <span class="setting-label" id="split-setting-sc-label">🍽️ ค่าบริการ (SC)</span>
+                <div class="setting-control-group">
+                  <button type="button" id="btn-toggle-sc10" class="chip-toggle-btn">10%</button>
+                  <input type="text" id="split-sc-custom" class="input-field glass-input setting-input-sm" placeholder="0%" inputmode="decimal">
+                </div>
+              </div>
+              <!-- VAT setting -->
+              <div class="split-setting-row">
+                <span class="setting-label" id="split-setting-vat-label">🏛️ ภาษีมูลค่าเพิ่ม (VAT)</span>
+                <div class="setting-control-group">
+                  <button type="button" id="btn-toggle-vat7" class="chip-toggle-btn">7%</button>
+                  <input type="text" id="split-vat-custom" class="input-field glass-input setting-input-sm" placeholder="0%" inputmode="decimal">
+                </div>
+              </div>
+              <!-- Delivery Fee setting -->
+              <div class="split-setting-row">
+                <span class="setting-label" id="split-setting-delivery-label">🛵 ค่าส่งเดลิเวอรี</span>
+                <div class="setting-control-group">
+                  <input type="text" id="split-delivery-input" class="input-field glass-input setting-input" placeholder="0 ฿" inputmode="decimal">
+                  <div class="pill-toggle-group">
+                    <button type="button" id="btn-delivery-equal" class="pill-toggle-btn active"><span id="btn-delivery-equal-text">หารเท่า</span></button>
+                    <button type="button" id="btn-delivery-prop" class="pill-toggle-btn"><span id="btn-delivery-prop-text">ตามสัดส่วน</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- People Management Bar (ผู้ร่วมบิล) -->
+        <div class="split-card glass-card">
+          <div class="split-card-header-row">
+            <div class="split-card-title-group">
+              <span class="card-icon">👥</span>
+              <span class="card-title"><span id="split-people-title">ผู้ร่วมบิล </span>(<span id="split-people-count">0</span> <span id="split-people-unit">คน</span>)</span>
+            </div>
+            <button type="button" id="btn-add-person" class="btn-text-action"><span id="btn-add-person-text">+ เพิ่มเพื่อน</span></button>
+          </div>
+          <!-- Horizontal scrollable people pills -->
+          <div id="split-people-list" class="people-avatars-row">
+            <!-- Dynamic avatar items: [Avatar Initial] [Name] (x delete) -->
+          </div>
+        </div>
+
+        <!-- Rapid Item Entry Card (เพิ่มรายการอาหาร) -->
+        <div class="split-card glass-card item-entry-card" id="split-entry-card">
+          <div class="split-card-header-row">
+            <div class="split-card-title-group">
+              <span class="card-icon">🍲</span>
+              <span class="card-title" id="split-entry-title">เพิ่มรายการอาหาร</span>
+            </div>
+          </div>
+
+          <div class="entry-fields-row">
+            <div class="entry-field-item flex-2">
+              <label class="field-label" id="label-split-item-name">ชื่อเมนู (ไม่ใส่ก็ได้)</label>
+              <input type="text" id="split-item-name" class="input-field glass-input" placeholder="เช่น ส้มตำ, ข้าวผัด">
+            </div>
+            <div class="entry-field-item flex-1">
+              <label class="field-label" id="label-split-item-price">???? (???) *</label>
+              <input type="text" id="split-item-price" class="input-field glass-input font-numeric" placeholder="0 ???? 50*2" inputmode="decimal">
+            </div>
+          </div>
+
+          <!-- Participant Selection Section -->
+          <div class="participant-selector-area">
+            <div class="participant-header-row">
+              <span class="selector-label" id="label-split-who-ate">ใครกินรายการนี้บ้าง?</span>
+              <span id="split-preview-per-person" class="preview-tag">เลือกคนกิน</span>
+            </div>
+            <div class="participant-chips-row">
+              <!-- Quick "Everyone" chip -->
+              <button type="button" id="chip-participant-all" class="participant-chip chip-everyone active">
+                <span id="chip-all-text">✨ ทุกคน
+              </span>
+              </button>
+              <!-- Dynamic participant chips -->
+              <div id="split-participant-chips" class="chips-container" style="display:inline-flex; gap:6px; flex-wrap:wrap;"></div>
+            </div>
+          </div>
+
+          <button type="button" id="btn-confirm-add-item" class="btn-gradient-submit">
+            <span id="btn-confirm-add-text">+ บันทึกรายการนี้
+          </span>
+          </button>
+        </div>
+
+        <!-- Added Items List (รายการที่บันทึกแล้ว) -->
+        <div class="split-card glass-card" id="split-items-card">
+          <div class="split-card-header-row">
+            <div class="split-card-title-group">
+              <span class="card-icon">📋</span>
+              <span class="card-title"><span id="split-items-title">รายการที่บันทึก </span>(<span id="split-items-count">0</span> <span id="split-items-unit">รายการ</span>)</span>
+            </div>
+          </div>
+          <div id="split-items-list" class="split-items-list">
+            <!-- Dynamic bill item cards -->
+          </div>
+        </div>
+
+        <!-- Individual Breakdown (สรุปยอดรายบุคคล) -->
+        <div class="split-card glass-card" id="split-breakdown-card">
+          <div class="split-card-header-row">
+            <div class="split-card-title-group">
+              <span class="card-icon">💰</span>
+              <span class="card-title" id="split-breakdown-title">สรุปยอดที่ต้องจ่ายแยกรายคน</span>
+            </div>
+          </div>
+          <div id="split-breakdown-list" class="breakdown-list">
+            <!-- Dynamic breakdown cards per person -->
+          </div>
+        </div>
+
+        <!-- LINE Export & PromptPay Card -->
+        <div class="split-card glass-card message-export-card">
+          <div class="payment-fields-container">
+            <div class="payment-field-group">
+              <label class="field-label" id="label-split-bank">Bank / Transfer Service</label>
+              <select id="split-bank-select" class="input-field glass-input bank-select"></select>
+              <input type="text" id="split-bank-custom-input" class="input-field glass-input hidden" style="display: none !important; margin-top: 6px;" placeholder="Specify bank or service">
+            </div>
+            <div class="payment-field-group">
+              <label class="field-label" id="label-split-account">Account Number or Phone</label>
+              <input type="text" id="split-account-input" class="input-field glass-input font-numeric" placeholder="081-xxx-xxxx / 123-4-56789-0" inputmode="numeric">
+            </div>
+          </div>
+          <button type="button" id="btn-copy-message" class="btn-message-share">
+            <svg class="chat-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+            </svg>
+            <span id="btn-copy-message-text">Copy Summary Message</span>
+          </button>
+          <div class="offline-guarantee-badge">
+            <span id="split-offline-guarantee">&#128274; 100% Offline ? Zero Tracking ? Maximum Privacy</span>
+          </div>
+        </div>
+
+        <!-- Dedicated One UI resting bottom spacer -->
+        <div id="split-final-spacer" class="oneui-resting-spacer"></div>
+
+      </section>
+
     </main>
 
     <!-- Pinned Controls Layer: Sits above the content layer without masking -->
@@ -231,6 +454,20 @@
       </div>
     </div>
 
+    <div class="pinned-action-container hidden" id="split-actions-bar">
+      <div class="action-bar-capsule glass-surface">
+        <button id="add-split-item-quick-btn" class="glass-action-btn primary-action">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+          <span id="btn-add-split-text">เพิ่มรายการ</span>
+        </button>
+        <button id="clear-split-btn" class="glass-action-btn danger-action">
+          <span id="btn-clear-split-text">ล้างข้อมูล</span>
+        </button>
+      </div>
+    </div>
+
     <!-- Floating Glass Island Bottom Navigation Bar -->
     <div class="nav-island-wrapper">
       <nav class="floating-glass-nav glass-surface" id="floating-glass-nav" data-active="compare">
@@ -247,6 +484,12 @@
             <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82zM7 7h.01"/>
           </svg>
           <span class="tab-label" data-tab="discount">คำนวณส่วนลด</span>
+        </button>
+        <button id="tab-split" class="nav-tab" aria-controls="split-page">
+          <svg class="tab-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <span class="tab-label" data-tab="split">หารค่าอาหาร</span>
         </button>
       </nav>
     </div>
@@ -384,7 +627,7 @@
   <!-- Toast Notification -->
   <div id="toast-notification" class="toast-bubble hidden"></div>
 
-  <script src="app.js?v=2.6.0"></script>
+  <script src="app.js?v=2.7.0"></script>
   <!-- PWA Offline Service Worker Registration & Intelligent Auto-Updater -->
   <script>
     if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.protocol === 'http:' || location.hostname === 'localhost')) {
@@ -435,5 +678,107 @@
       });
     }
   </script>
-  </body>
+  
+  <!-- ================= ADD PERSON MODAL ================ -->
+  <div id="add-person-modal-backdrop" class="modal-backdrop hidden">
+    <div id="add-person-modal" class="modal-sheet glass-surface" style="max-width: 380px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">&#128100;</span>
+          <div>
+            <h3 id="modal-add-person-title" class="modal-title">เพิ่มเพื่อน</h3>
+            <p id="modal-add-person-sub" class="modal-subtitle">เพิ่มเพื่อนร่วมโต๊ะ</p>
+          </div>
+        </div>
+        <button id="add-person-modal-close-btn" type="button" class="btn-modal-close" aria-label="Close">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="add-person-modal-body" style="display:flex; flex-direction:column; gap:14px;">
+        <div class="modal-field-group">
+          <label class="field-label" id="label-modal-person-name">ชื่อเพื่อน</label>
+          <input type="text" id="add-person-name-input" class="input-field glass-input" placeholder="เช่น บอส, มายด์">
+        </div>
+        <div class="modal-field-group" style="display: none;">
+          <label class="field-label" id="label-modal-person-color">สีอวตาร</label>
+          <div id="avatar-color-choices" class="avatar-color-choices"></div>
+        </div>
+        <button type="button" id="btn-modal-confirm-add-person" class="btn-gradient-submit" style="margin-top:6px;">
+          <span id="btn-modal-confirm-person-text">เพิ่มเพื่อน</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= EDIT ITEM MODAL ================ -->
+  <div id="edit-item-modal-backdrop" class="modal-backdrop hidden">
+    <div id="edit-item-modal" class="modal-sheet glass-surface" style="max-width: 380px;">
+      <div class="modal-header">
+        <div class="modal-title-group">
+          <span class="modal-icon">&#9999;&#65039;</span>
+          <div>
+            <h3 id="modal-edit-item-title" class="modal-title">แก้ไขรายการอาหาร</h3>
+            <p id="modal-edit-item-sub" class="modal-subtitle">แก้ไขชื่อ ราคา หรือคนแชร์</p>
+          </div>
+        </div>
+        <button id="edit-item-modal-close-btn" type="button" class="btn-modal-close" aria-label="Close">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="edit-item-modal-body" style="display:flex; flex-direction:column; gap:14px;">
+        <input type="hidden" id="edit-item-id-hidden">
+        <div class="modal-field-group">
+          <label class="field-label" id="label-modal-edit-name">ชื่อรายการอาหาร</label>
+          <input type="text" id="edit-item-name-input" class="input-field glass-input" placeholder="เช่น ต้มยำกุ้ง">
+        </div>
+        <div class="modal-field-group">
+          <label class="field-label" id="label-modal-edit-price">ราคา</label>
+          <input type="text" id="edit-item-price-input" class="input-field glass-input font-numeric" inputmode="decimal" placeholder="0.00">
+        </div>
+        <div class="participant-selector-area">
+          <div class="participant-header-row">
+            <span class="selector-label" id="label-modal-edit-who">ใครแชร์รายการนี้บ้าง?</span>
+          </div>
+          <div class="participant-chips-row">
+            <button type="button" id="chip-edit-everyone" class="participant-chip chip-everyone">
+              <span id="chip-edit-everyone-text">&#10024; ทุกคน</span>
+            </button>
+            <div id="edit-participant-chips" class="chips-container" style="display:inline-flex; gap:6px; flex-wrap:wrap;"></div>
+          </div>
+        </div>
+        <button type="button" id="btn-modal-save-item" class="btn-gradient-submit" style="margin-top:6px;">
+          <span id="btn-modal-save-item-text">บันทึกการแก้ไข</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CLEAR CONFIRM MODAL ================ -->
+  <div id="clear-confirm-modal-backdrop" class="modal-backdrop hidden">
+    <div id="clear-confirm-modal" class="modal-sheet glass-surface" style="max-width: 360px; text-align: center;">
+      <div style="font-size: 2.2rem; margin-bottom: 8px;">&#9888;&#65039;</div>
+      <h3 id="modal-clear-title" class="modal-title" style="justify-content: center; font-size: 1.15rem;">Clear All Split Data</h3>
+      <p id="modal-clear-desc" class="modal-subtitle" style="font-size: 0.92rem; margin-top: 8px; line-height: 1.4;">Are you sure you want to clear all bill splitter items and settings?</p>
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <button type="button" id="btn-clear-cancel" class="glass-action-btn" style="flex: 1; border-radius: 14px; padding: 12px 16px;">
+          <span id="btn-clear-cancel-text">Cancel</span>
+        </button>
+        <button type="button" id="btn-clear-confirm" class="glass-action-btn danger-action" style="flex: 1; border-radius: 14px; padding: 12px 16px;">
+          <span id="btn-clear-confirm-text">Clear Data</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Math Accessory Bar for Virtual Keyboards (iOS & Android) -->
+  <div id="floating-math-accessory" class="floating-math-accessory hidden">
+    <div class="math-accessory-pill glass-surface">
+      <button type="button" class="btn-math-acc" data-op="+" tabindex="-1" aria-label="Plus">+</button>
+      <button type="button" class="btn-math-acc" data-op="-" tabindex="-1" aria-label="Minus">&minus;</button>
+      <button type="button" class="btn-math-acc" data-op="*" tabindex="-1" aria-label="Multiply">&times;</button>
+      <button type="button" class="btn-math-acc" data-op="/" tabindex="-1" aria-label="Divide">&divide;</button>
+    </div>
+  </div>
+
+</body>
 </html>
